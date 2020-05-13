@@ -1,0 +1,188 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.login-text {
+  font-size: 40rpx;
+  color: #333;
+  margin: 50rpx 0;
+}
+
+.login-button {
+  border-radius: 50px;
+  width: 300rpx;
+}
+
+.container {
+  padding: 40rpx 20rpx 0 14rpx;
+}
+
+.banner {
+  width: 100%;
+  height: 252rpx;
+}
+
+.year {
+  font-size: 48rpx;
+  margin-bottom: 40rpx;
+  color: #333;
+}
+
+.footprint-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+
+.content {
+  width: 594rpx;
+}
+
+.date {
+  width: 148rpx;
+}
+
+.day {
+  font-size: 44rpx;
+  color: #333;
+}
+
+.month {
+  font-size: 28rpx;
+  color: #151515;
+}
+
+.line {
+  font-size: 28rpx;
+  color: #151515;
+}
+
+.uimages {
+  overflow: hidden;
+}
+
+.content-detail {
+  background: #f9fafb;
+  padding: 26rpx;
+}
+
+.content-talk {
+  font-size: 28rpx;
+  color: #000;
+  margin-bottom: 20rpx;
+  display: block;
+  text-align: justify;
+}
+
+.uimg {
+  width: 167rpx;
+  height: 167rpx;
+  float: left;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.uimg:nth-child(3), .uimg:nth-child(6), .uimg:nth-child(9) {
+  margin-right: 0;
+}
+
+.ubtns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 32rpx;
+}
+
+.ubtns image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 34rpx;
+}
+
+.ubtns text {
+  margin-left: 12rpx;
+}
+
+.comment-list {
+  background: #f9fafb;
+  padding: 20rpx;
+  font-size: 24rpx;
+  margin-top: 40rpx;
+}
+
+.comment-item {
+  margin-bottom: 20rpx;
+  word-break: break-all;
+}
+
+.comment-item:last-child {
+  margin: 0;
+}
+
+.comment-name {
+  font-size: 24rpx;
+  color: #005b9e;
+}
+
+.comment-content {
+  color: #2a2a2a;
+  font-size: 24rpx;
+  text-align: justify;
+}
+
+.comment-panel {
+  position: fixed;
+  bottom: 0;
+  z-index: 99999;
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  background: #fff;
+  align-items: center;
+  border-top: 1px solid #ccc;
+}
+
+.comment-input {
+  border: 1px solid #ccc;
+  display: block;
+  flex: 1;
+  padding: 10rpx 15rpx;
+  border-radius: 5px;
+  color: #333;
+}
+
+.comment-send {
+  margin-left: 20rpx;
+  background: #ff5c59;
+  width: 100rpx;
+  text-align: center;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 24rpx;
+  display: block;
+}
+
+.share {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 34rpx;
+}
+
+.share-btn {
+  width: 100%;
+  height: 100%;
+  background: url('https://xuexi.wurui.在线/wxxcx/images/icon/share.png');
+  background-size: 100% 100%;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  border-radius: 0;
+}

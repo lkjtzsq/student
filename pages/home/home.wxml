@@ -1,0 +1,53 @@
+<!-- 轮播区域 -->
+<view class="swiper-container">
+  <swiper class="home-swiper" indicator-dots="{{true}}" autoplay="{{true}}" indicator-active-color="#ffffff">
+    <swiper-item wx:for="{{swiperLists}}" wx:key="a">
+      <image src="{{item.rotation_cover}}" mode="aspectFill" bindtap="swiperLink" data-type="{{item.key_type}}" data-id="{{item.key_id}}" data-outside="{{item.rotation_url}}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="punch-box">
+    <view class="daily-practice">
+      <image class="dp-img" src="https://xuexi.5rkk.com/wxxcx/images/icon/calendar.png"></image>
+      <view class="dp-text">
+        <text class="dp-title">{{answer_type}}</text>
+        <text class="dp-intro">坚持才会看到惊喜哦~</text>
+      </view>
+    </view>
+    <view class="punch-btn {{is_answer?'is_answer':''}}" bindtap="enterDailyPractice"  data-enter="dailyPractice">{{is_answer?'已打卡':'去打卡'}}</view>
+  </view>
+</view>
+<!-- 4组按钮区域 -->
+<view class="btn-group">
+  <view class="btn-item" bindtap="enterFootprint" data-enter="footprint">
+    <image class="btn-img" src="https://xuexi.5rkk.com/wxxcx/images/icon/foot.png"></image>
+    <text class="btn-text">成长足迹</text>
+  </view>
+   <view class="btn-item" bindtap="enterActivity">
+    <image class="btn-img" src="https://xuexi.5rkk.com/wxxcx/images/icon/activity.png"></image>
+    <text class="btn-text">热门活动</text>
+  </view>
+   <view class="btn-item">
+    <image class="btn-img" bindtap="enterClass" src="https://xuexi.5rkk.com/wxxcx/images/icon/class.png"></image>
+    <text class="btn-text">精选课程</text>
+  </view>
+   <view class="btn-item">
+    <image class="btn-img" bindtap="enterDataBank" src="https://xuexi.5rkk.com/wxxcx/images/icon/data.png"></image>
+    <text class="btn-text">资料库</text>
+  </view>
+</view>
+<!-- 热门推荐 -->
+<view class="hot">
+  <view class="hot-title">
+    <image src="https://xuexi.5rkk.com/wxxcx/images/icon/red-line.png"></image>
+    <text class="hot-title-text">热门推荐</text>
+  </view>
+  <view class="hot-box" wx:for="{{hotLists}}" wx:key="b" bindtap="swiperLink" data-type="{{item.key_type}}" data-id="{{item.key_id}}" data-outside="{{item.rotation_url}}">
+    <view class="hot-item">
+      <image class="hot-item-img" src="{{item.recommend_cover}}" mode="aspectFill"></image>
+      <view class="hot-bg"></view>
+      <text class="hot-text">{{item.recommend_title}}</text>
+      <view class="hot-tag" wx:if="{{item.recommend_status == 1}}">报名中</view>
+    </view>
+  </view>
+</view>
+<image class="suspend-panel" src="https://xuexi.5rkk.com/wxxcx/images/icon/suspension.png"></image>

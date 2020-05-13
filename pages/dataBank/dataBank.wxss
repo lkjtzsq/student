@@ -1,0 +1,146 @@
+.container {
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 92rpx;
+  overflow: hidden;
+  background: #fff;
+}
+
+.search-container {
+  padding: 24rpx 30rpx 0;
+  background: #fff;
+}
+
+.search {
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #f4f5f6;
+}
+
+.search-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin: 0 18rpx 0 24rpx;
+}
+
+.search-input {
+  font-size: 28rpx;
+  color: #333;
+  margin-right: 24rpx;
+  flex: 1;
+}
+
+.topTabSwiper {
+  display: flex;
+  height: 90rpx;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.tab {
+  text-align: center;
+  height: 90rpx;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.current-line {
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+  color: #7f7f7f;
+  font-size: 32rpx;
+  line-height: 84rpx;
+}
+
+.tabBorer .current-line {
+  border-bottom: 6rpx solid #ff5c59;
+  color: #333;
+  font-weight: bold;
+}
+
+.swiper {
+  width: 100%;
+  margin-top: 92rpx;
+}
+
+.product-list {
+  display: flex;
+  padding: 20rpx;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.product {
+  width: 346rpx;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 8px;
+}
+
+.product-image {
+  width: 306rpx;
+  display: block;
+  margin: 20rpx auto;
+  height: 226rpx;
+  border-radius: 8px;
+}
+
+.product-title {
+  font-size: 28rpx;
+  color: #333;
+  margin: 0 20rpx 24rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2; /*要显示的行数*/
+  -webkit-box-orient: vertical;
+  height:76rpx;
+}
+
+.product-intro {
+  color: #7f7f7f;
+  font-size: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 10rpx;
+}
+
+.data-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20rpx 20rpx;
+}
+
+.price {
+  font-size: 32rpx;
+  color: #ff5c59;
+}
+
+.end-time {
+  color: #FF5C59;
+  font-size: 32rpx;
+}
+
+.buy-btn {
+  width: 132rpx;
+  height: 54rpx;
+  text-align: center;
+  line-height: 54rpx;
+  border-radius: 4px;
+  background: #2eb1ec;
+  color: #fff;
+  font-size: 28rpx;
+}

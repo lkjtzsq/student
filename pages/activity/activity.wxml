@@ -1,0 +1,10 @@
+<view class="activity" wx:for="{{activityLists}}" wx:key="*this">
+  <view class="activity-item" bindtap="swiperLink" data-type="{{2}}" data-id="{{item.id}}">
+    <text class="hot-tag" wx:if="{{item.act_status==1}}">报名中</text>
+    <image class="activity-pic" mode="aspectFill" src="{{item.act_cover}}"></image>
+    <view class="activity-text">
+      <text class="activity-title">{{item.act_title}}</text>
+      <text class="activity-button">加入活动</text>
+    </view>
+  </view>
+</view>

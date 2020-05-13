@@ -1,0 +1,43 @@
+<view class="footprint-container">
+  <image class="banner" src="{{user_cover}}" mode="aspectFill"></image>
+  <view class="container">
+    <block wx:for="{{footprintList}}" wx:key="*this">
+      <view class="year" wx:if="{{item.year!=year && item.is_year_last}}">2020年</view>
+      <view class="footprint-item">
+        <view class="date">
+          <text class="day">{{item.day}}</text>
+          <text class="line">/</text>
+          <text class="month">{{item.month}}月</text>
+        </view>
+        <view class="content">
+          <view class="content-detail">
+            <text class="content-talk">{{item.album_remark}}</text>
+            <view class="uimages">
+              <image wx:for="{{item.image}}" wx:for-item="image" wx:for-index="imageIndex" wx:key="e" class="uimg" mode="aspectFill" src="{{image}}" bindtap="previewImg" data-list="{{item.image}}" data-current="{{image}}"></image>
+
+            </view>
+            <view class="ubtns">
+              <image src="https://xuexi.wurui.在线/wxxcx/images/icon/message.png" style="width:34rpx;height:34rpx;" bindtap="createComment" data-index="{{index}}" data-id="{{item.id}}"></image>
+              <view class="share">
+                <button open-type="share" class="share-btn"></button>
+              </view>
+            </view>
+
+          </view>
+          <view class="comment-list" wx:if="{{item.comments.length}}">
+            <view class="comment-item" wx:for="{{item.comments}}" wx:for-item="comment" wx:key="f">
+              <text class="comment-name">{{comment.nickname}}：</text>
+              <text class="comment-content">{{comment.comment}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- 评论输入框 -->
+<view class="comment-panel" wx:if="{{commentPanelShow}}">
+  <input class="comment-input" bindinput="bindinput" placeholder="说点什么"></input>
+  <text class="comment-send" bindtap="sendComment">发送</text>
+</view>
+<!-- <mp-gallery show="{{show}}" showDelete="{{false}}" img-urls="{{imgUrls}}" current="{{currentImage}}"></mp-gallery> -->

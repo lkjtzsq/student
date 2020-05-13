@@ -1,0 +1,5 @@
+.login-button {
+  border-radius: 50px;
+  width: 300rpx;
+  margin-top:70rpx;
+}

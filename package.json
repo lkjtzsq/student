@@ -1,0 +1,22 @@
+{
+  "name": "student",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lkjtzsq/student.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lkjtzsq/student/issues"
+  },
+  "homepage": "https://github.com/lkjtzsq/student#readme",
+  "dependencies": {
+    "wxml-to-canvas": "^1.0.3"
+  }
+}

@@ -1,0 +1,69 @@
+<view class="container">
+  <view class="fixed-top">
+    <view class="search-container">
+      <view class="search">
+        <image class="search-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/search.png"></image>
+        <input class="search-input" type="text" confirm-type="search" placeholder="搜索你想要的"></input>
+      </view>
+    </view>
+    <view class='topTabSwiper'>
+      <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>
+        <view class="current-line">商品</view>
+      </view>
+      <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>
+        <view class="current-line">拼团</view>
+      </view>
+      <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>
+        <view class="current-line">积分兑换</view>
+      </view>
+    </view>
+  </view>
+  <swiper current="{{currentData}}" class='swiper' duration="300" bindchange="bindchange" style="height:1100rpx;">
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:1100rpx;" bindscrolltolower="loadMore1">
+        <view class="product-list">
+          <view class="product" wx:for="{{productList}}" wx:key="product" bindtap="toStoreDetail" data-id="{{item.id}}">
+            <image class="product-image" mode="aspectFill" src="{{item.good_cover}}"></image>
+            <text class="product-title">{{item.good_name}}</text>
+            <text class="product-intro">{{item.good_description}}</text>
+            <view class="data-panel">
+              <text class="price">￥{{item.good_price}}</text>
+              <text class="end-time"></text>
+            </view>
+          </view>
+
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:1100rpx;" bindscrolltolower="loadMore2">
+        <view class="product-list">
+          <view class="product" wx:for="{{spellList}}" wx:key="spell" bindtap="toStoreDetail" data-id="{{item.id}}">
+            <image class="product-image" mode="aspectFill" src="{{item.good_cover}}"></image>
+            <text class="product-title">{{item.good_name}}</text>
+            <text class="product-intro">{{item.good_description}}</text>
+            <view class="data-panel">
+              <text class="price">￥{{item.good_price}}</text>
+              <text class="end-time">{{item.tuan_good_end_at}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:1100rpx;" bindscrolltolower="loadMore3">
+        <view class="product-list">
+          <view class="product" wx:for="{{integralList}}" wx:key="integral" bindtap="toStoreDetail" data-id="{{item.id}}">
+            <image class="product-image" mode="aspectFill" src="{{item.good_cover}}"></image>
+            <text class="product-title">{{item.good_name}}</text>
+            <text class="product-intro">{{item.good_description}}</text>
+            <view class="data-panel">
+              <text class="price">￥{{item.good_price}}</text>
+              <text class="end-time">{{item.good_score}}积分</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

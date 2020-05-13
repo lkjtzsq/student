@@ -1,0 +1,5 @@
+view,text{
+  color:#333;
+  font-family: "Microsoft YaHei";
+  font-size: 28rpx;
+}

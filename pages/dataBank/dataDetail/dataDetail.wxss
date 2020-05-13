@@ -1,0 +1,22 @@
+.pic{
+  width:100%;
+  display: block;
+}
+.container{
+  padding: 24rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+.title{
+  font-size: 32rpx;
+  color: #000;
+  line-height: 44rpx;
+  margin-bottom: 12rpx;
+  font-weight: bold;
+}
+.content{
+  font-size: 28rpx;
+  line-height: 56rpx;
+  color: #666;
+}

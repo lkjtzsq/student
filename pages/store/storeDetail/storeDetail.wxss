@@ -1,0 +1,92 @@
+.pic {
+  display: block;
+  width: 100%;
+}
+
+.container {
+  padding: 26rpx 30rpx 170rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.price, .time {
+  display: flex;
+  align-items: center;
+}
+
+.good-group-price {
+  color: #ff5c59;
+  font-size: 40rpx;
+}
+
+.good-price {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 10rpx;
+  text-decoration: line-through;
+}
+
+.time {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.end-time {
+  color: #ff5c59;
+  font-size: 24rpx;
+}
+
+.title {
+  margin-bottom: 10rpx;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.desc {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #999;
+}
+.buy-text{
+  font-size: 32rpx;
+  color: #666;
+}
+.buy-price{
+  font-size: 32rpx;
+  color: #FF5C59;
+  margin-left: 10rpx; 
+}
+.buy-group {
+  height: 140rpx;
+  border-top: 1px solid #dcdcdc;
+  position: fixed;
+  width: -webkit-fill-available;
+  padding: 0 30rpx;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buy-btn{
+  width:300rpx;
+  height:84rpx;
+  text-align: center;
+  line-height: 84rpx;
+  border-radius: 8px;
+  background: #FF5C59;
+  font-size: 32rpx;
+  color: #fff;
+}

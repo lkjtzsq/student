@@ -1,0 +1,43 @@
+.choiceness-container {
+  margin: 30rpx;
+}
+
+.choiceness-item {
+  display: flex;
+  padding-bottom: 32rpx;
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 30rpx;
+}
+.choiceness-item:last-child{
+  border: none;
+}
+.choiceness-item-text {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+}
+
+.choiceness-item-title {
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+
+.choiceness-item-desc {
+  font-size: 24rpx;
+  color: #666;
+  flex: 1;
+}
+
+.choiceness-item-img {
+  width: 308rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.price {
+  font-size: 32rpx;
+  color: #ff5c59;
+}

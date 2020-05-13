@@ -1,0 +1,34 @@
+<view>
+  <view class="uitem" wx:for="{{dynamicList}}" wx:key="c">
+    <view class="uintro">
+      <image class="upic" src="{{item.user.avatar_path?item.user.avatar_path:'https://xuexi.wurui.xn--3ds443g/wxxcx/images/icon/user.png'}}"></image>
+      <view class="utext">
+        <text class="uname">{{item.user.nickname}}</text>
+        <text class="publish-time">{{item.dynamic_publish_at}}</text>
+      </view>
+    </view>
+    <text class="utalk">{{item.dynamic_remark}}</text>
+    <view class="uimages">
+      <image class="uimg" mode="aspectFill" wx:for="{{item.image}}" wx:for-item="imageItem" wx:for-index="imageIndex" wx:key="d" src="{{imageItem}}" bindtap="previewImg" data-list="{{item.image}}" data-current="{{imageItem}}"></image>
+    </view>
+    <view class="ubtns">
+      <image src="https://xuexi.5rkk.com/wxxcx/images/icon/message.png" style="width:34rpx;height:34rpx;" bindtap="createComment" data-index="{{index}}" data-id="{{item.id}}"></image>
+      <view class="share">
+        <button open-type="share" class="share-btn"></button>
+      </view>
+    </view>
+    <view class="comment-list" wx:if="{{item.comments.length}}">
+      <view class="comment-item" wx:for="{{item.comments}}" wx:for-item="comment" wx:key="f">
+        <text class="comment-name">{{comment.nickname}}：</text>
+        <text class="comment-content">{{comment.comment}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 评论输入框 -->
+<view class="comment-panel" wx:if="{{commentPanelShow}}">
+  <input class="comment-input" bindinput="bindinput" placeholder="说点什么"></input>
+  <text class="comment-send" bindtap="sendComment">发送</text>
+</view>
+<!-- <mp-gallery show="{{show}}" showDelete="{{false}}" img-urls="{{imgUrls}}" current="{{currentImage}}"></mp-gallery> -->

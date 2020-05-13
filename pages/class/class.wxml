@@ -1,0 +1,10 @@
+<view class="choiceness-container">
+  <view class="choiceness-item" wx:for="{{classList}}" wx:key="*this" bindtap="toClassDetail" data-id="{{item.id}}">
+    <image class="choiceness-item-img" mode="aspectFill" src="{{item.classroom_cover}}"></image>
+    <view class="choiceness-item-text">
+      <text class="choiceness-item-title">{{item.classroom_name}}</text>
+      <text class="choiceness-item-desc">截止至：{{item.classroom_end_at}}</text>
+      <view class="price">¥ {{item.classroom_price}}</view>
+    </view>
+  </view>
+</view>

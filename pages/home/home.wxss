@@ -1,0 +1,197 @@
+.swiper-container {
+  width: 100%;
+  height: 340rpx;
+  position: relative;
+  margin-bottom: 92rpx;
+}
+
+.home-swiper {
+  height: 340rpx;
+  width: 100%;
+}
+
+.home-swiper swiper-item image {
+  height: 340rpx;
+  width: 100%;
+}
+
+.home-swiper .wx-swiper-dot {
+  margin-bottom: 65rpx;
+}
+
+.punch-box {
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+  width: 630rpx;
+  padding: 24rpx 30rpx;
+  left: 50%;
+  margin-left: -345rpx;
+  background: #fff;
+  height: 84rpx;
+  align-items: center;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 0px #ccc;
+  bottom: -66rpx;
+}
+
+.daily-practice {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.dp-img {
+  width: 84rpx;
+  height: 84rpx;
+  margin-right: 20rpx;
+}
+
+.dp-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.dp-title {
+  font-size: 28rpx;
+  color: #000;
+  margin-bottom: 10rpx;
+  font-weight: bold;
+}
+
+.dp-intro {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.punch-btn {
+  width: 148rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  border-radius: 50px;
+  background: #ff5c59;
+  color: #fff;
+  font-size: 26rpx;
+}
+
+.punch-btn.is_answer {
+  background: #c9c9c9;
+}
+
+.btn-group {
+  display: flex;
+  border-bottom: 8px solid #eff1f4;
+  padding-bottom: 24rpx;
+}
+
+.btn-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.btn-img {
+  width: 90rpx;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.btn-text {
+  color: #2a2a2a;
+  font-size: 28rpx;
+}
+
+.hot {
+  padding: 20rpx 30rpx;
+}
+
+.hot-title {
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+
+.hot-title-text {
+  color: #2a2a2a;
+  font-size: 32rpx;
+}
+
+.hot-title image {
+  width: 6rpx;
+  height: 32rpx;
+  margin-top: 2rpx;
+  margin-right: 12rpx;
+}
+
+.hot-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24rpx;
+}
+
+.hot-item {
+  height: 350rpx;
+  width: 100%;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.hot-item-img {
+  width: 100%;
+  height: 350rpx;
+  display: block;
+  border-radius: 3px;
+}
+
+.hot-bg {
+  height: 60rpx;
+  background-color: #000;
+  opacity: 0.5;
+  margin-top: -60rpx;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.hot-text {
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: -60rpx;
+  display: block;
+  position: relative;
+  padding: 0 24rpx;
+  color: #fff;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot-tag {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+  background: url("https://xuexi.wurui.在线/wxxcx/images/icon/apply_bg.png") left top no-repeat;
+  background-size: 100% 100%;
+  width: 124rpx;
+  text-align: center;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  padding-left: 10rpx;
+}
+
+.suspend-panel {
+  width: 92rpx;
+  height: 92rpx;
+  right: 20rpx;
+  bottom: 48rpx;
+  position: fixed;
+  z-index: 999;
+}

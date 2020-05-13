@@ -1,0 +1,15 @@
+<view class="container">
+  <text class="title">{{title}}</text>
+  <rich-text nodes="{{activityDetail}}"></rich-text>
+</view>
+<view class="join-panel" wx:if="{{is_free=='charge' && is_join!==1}}">
+  <text class="join-text">新学员优惠价：</text>
+  <text class="join-price">¥{{act_price}}</text>
+  <view class="join-btn">我要报名</view>
+</view>
+<view class="join-panel" wx:if="{{is_join==1}}">
+  <view class="free-btn join" bindtap="cancelJoin">取消报名</view>
+</view>
+<view class="join-panel" wx:if="{{is_join!==1 && is_free!=='charge'}}">
+  <view class="free-btn" bindtap="joinFree">免费报名</view>
+</view>

@@ -1,0 +1,59 @@
+<view class="container">
+  <view class="fixed-top">
+    <view class='topTabSwiper'>
+      <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>
+        <view class="current-line">绘本</view>
+      </view>
+      <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>
+        <view class="current-line">歌曲</view>
+      </view>
+      <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>
+        <view class="current-line">儿歌</view>
+      </view>
+    </view>
+  </view>
+  <swiper current="{{currentData}}" class='swiper' duration="300" bindchange="bindchange" style="height:1350rpx;">
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:1350rpx;" bindscrolltolower="loadMore1">
+        <view class="product-list">
+          <view class="product" wx:for="{{pictureList}}" wx:key="product" bindtap="toDataDetail" data-id="{{item.id}}">
+            <image class="product-image" mode="aspectFill" src="{{item.material_cover}}"></image>
+            <text class="product-title">{{item.material_name}}</text>
+            <view class="data-panel">
+              <text class="end-time">{{item.material_score}}积分</text>
+              <text class="buy-btn">兑换</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:1350rpx;" bindscrolltolower="loadMore2">
+        <view class="product-list">
+          <view class="product" wx:for="{{musicList}}" wx:key="spell" bindtap="toDataDetail" data-id="{{item.id}}">
+            <image class="product-image" mode="aspectFill" src="{{item.material_cover}}"></image>
+            <text class="product-title">{{item.material_name}}</text>
+            <view class="data-panel">
+              <text class="end-time">{{item.material_score}}积分</text>
+              <text class="buy-btn">兑换</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:1350rpx;" bindscrolltolower="loadMore3">
+        <view class="product-list">
+          <view class="product" wx:for="{{nurseryList}}" wx:key="integral" bindtap="toDataDetail" data-id="{{item.id}}">
+            <image class="product-image" mode="aspectFill" src="{{item.material_cover}}"></image>
+            <text class="product-title">{{item.material_name}}</text>
+            <view class="data-panel">
+              <text class="end-time">{{item.material_score}}积分</text>
+              <text class="buy-btn">兑换</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

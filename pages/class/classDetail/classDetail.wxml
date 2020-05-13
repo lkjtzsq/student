@@ -1,0 +1,11 @@
+<view class="container">
+  <image class="class-img" src="{{classDetail.classroom_cover}}"></image>
+  <view class="join-panel" wx:if="{{classDetail.is_free=='charge'}}">
+    <text class="join-text">新学员优惠价：</text>
+    <text class="join-price">¥{{classDetail.classroom_price}}</text>
+    <view class="join-btn">我要报名</view>
+  </view>
+  <view class="join-panel" wx:if="{{classDetail.is_free!=='charge'}}">
+    <view class="free-btn">免费报名</view>
+  </view>
+</view>
