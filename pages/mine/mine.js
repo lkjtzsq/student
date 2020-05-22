@@ -16,11 +16,12 @@ Page({
   //支付
   pay: function() {
     wx.requestPayment({
-      timeStamp: '',
-      nonceStr: '',
-      package: '',
-      signType: 'MD5',
-      paySign: '',
+      //    "appId": "wx54fc31829de59a65",
+       nonceStr: "5ec7866a593d4",
+       package: "prepay_id=wx2215593827936821fb133fcb1682301500",
+        signType: "MD5",
+          paySign: "DB80946523CB6486061ECC17235EBF0C",
+          timeStamp: "1590134378",
       success(res) {
         console.log("成功")
         console.log(res)
@@ -116,6 +117,56 @@ Page({
     wx.removeStorageSync("user_cover")
     wx.removeStorageSync("classroom_name")
     wx.removeStorageSync("birth")
+  },
+  //获取收货地址
+  getAddr() {
+    wx.getSetting({
+      success(res) {
+        console.log("vres.authSetting['scope.address']：",res.authSetting['scope.address'])
+        if (res.authSetting['scope.address']) {
+          console.log("获取地址授权成功")
+          wx.chooseAddress({
+            success(res) {
+              console.log(res)
+              console.log(res.userName)
+              console.log(res.postalCode)
+              console.log(res.provinceName)
+              console.log(res.cityName)
+              console.log(res.countyName)
+              console.log(res.detailInfo)
+              console.log(res.nationalCode)
+              console.log(res.telNumber)
+            }
+          })
+          
+              
+        } else {
+          if (res.authSetting['scope.address'] == false) {
+            console.log("获取地址授权失败")
+            wx.openSetting({
+              success(res) {
+                console.log(res.authSetting)
+              }
+            })
+          } else {
+            console.log("eee")
+            wx.chooseAddress({
+              success(res) {
+                console.log(res)
+                console.log(res.userName)
+                console.log(res.postalCode)
+                console.log(res.provinceName)
+                console.log(res.cityName)
+                console.log(res.countyName)
+                console.log(res.detailInfo)
+                console.log(res.nationalCode)
+                console.log(res.telNumber)
+              }
+            })
+          }
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
