@@ -17,7 +17,7 @@
   <view class="integral">
     <image class="integral-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/integral.png"></image>
     <text class="integral-text">我的积分：</text>
-    <text class="integral-num">45</text>
+    <text class="integral-num">{{userScore}}</text>
   </view>
   <view style="height:30rpx;background:#fff;"></view>
   <view class='topTabSwiper'>
@@ -46,19 +46,10 @@
     </view>
     <view class="toggle-item" wx:if="{{currentData == 1}}">
       <view class="activity">
-        <view class="activity-item">
-          <image class="activity-pic" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583565928216&di=75c3d6eca25b839facbb4afc423cc1db&imgtype=0&src=http%3A%2F%2Ffile02.16sucai.com%2Fd%2Ffile%2F2014%2F0903%2F7512230abc4724321254dcac513c6ec8.jpg"></image>
-          <text class="activity-title">儿童成长美术精品课程</text>
+        <view class="activity-item" wx:for="{{activityList}}" wx:key="at" bindtap="toActivityDetail" data-id="{{item.id}}">
+          <image class="activity-pic" mode="aspectFill" src="{{item.act_cover}}"></image>
+          <text class="activity-title">{{item.act_title}}</text>
         </view>
-        <view class="activity-item">
-          <image class="activity-pic" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583565928216&di=75c3d6eca25b839facbb4afc423cc1db&imgtype=0&src=http%3A%2F%2Ffile02.16sucai.com%2Fd%2Ffile%2F2014%2F0903%2F7512230abc4724321254dcac513c6ec8.jpg"></image>
-          <text class="activity-title">儿童成长美术精品课程</text>
-        </view>
-        <view class="activity-item">
-          <image class="activity-pic" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583565928216&di=75c3d6eca25b839facbb4afc423cc1db&imgtype=0&src=http%3A%2F%2Ffile02.16sucai.com%2Fd%2Ffile%2F2014%2F0903%2F7512230abc4724321254dcac513c6ec8.jpg"></image>
-          <text class="activity-title">儿童成长美术精品课程</text>
-        </view>
-
       </view>
     </view>
     <view class="toggle-item" wx:if="{{currentData == 2}}">
@@ -148,12 +139,8 @@
     <image class="help-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
   </view>
   <view class="help-line"></view>
-  <view class="help-item" bindtap="pay">
+  <view class="help-item">
     <text class="help-text">联系我们</text>
-    <image class="help-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
-  </view>
-  <view class="help-item" bindtap="getAddr">
-    <text class="help-text">获取地址</text>
     <image class="help-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
   </view>
 </view>

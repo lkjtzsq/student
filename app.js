@@ -6,7 +6,8 @@ App({
     userinfo:{
       sessionId:"",
       sessionID:""
-    }
+    },
+    mineCurrentData:0
   },
   onLaunch:function(options){
    

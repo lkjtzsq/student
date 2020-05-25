@@ -85,6 +85,13 @@ Page({
           [key]: that.data.dynamicList[index].comments,
           commentPanelShow: !that.data.commentPanelShow
         })
+        if(res.data.score.offset){
+          wx.showModal({
+            title: '提示',
+            showCancel:false,
+            content: '留言成功！新增' + res.data.score.offset + '积分'  
+          })
+        }
       }
     })
     

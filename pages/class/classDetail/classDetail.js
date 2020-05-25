@@ -28,6 +28,57 @@ Page({
       }
     })
   },
+  //课程付费
+  pay: function () {
+    var that = this
+    var token = wx.getStorageSync("token");
+    if (token) {
+      wx.request({
+        url: app.globalData.studentBase + '/api/pay/classroom',
+        method: "POST",
+        header: {
+          Authorization: token
+        },
+        data: {
+          classroom_id: that.data.classDetail.id
+        },
+        success: function (res) {
+          console.log(res)
+          if (res.data.nonceStr) {
+            wx.requestPayment({
+              //    "appId": "wx54fc31829de59a65",
+              nonceStr: res.data.nonceStr,
+              package: res.data.package,
+              signType: res.data.signType,
+              paySign: res.data.paySign,
+              timeStamp: res.data.timestamp,
+              success(res) {
+                console.log("成功")
+                console.log(res)
+                if (res.errMsg == "requestPayment:ok") {
+                  // that.setData({
+                  //   is_join:1
+                  // })
+                  app.globalData.mineCurrentData = 0
+                  wx.switchTab({
+                    url: "/pages/mine/mine"
+                  })
+                }
+              },
+              fail(res) {
+                console.log("失败")
+                console.log(res)
+              }
+            })
+          }
+        },
+        fail: function (err) {
+          console.log(err)
+        }
+      })
+    }
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */

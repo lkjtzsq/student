@@ -18,5 +18,5 @@
     <text class="buy-text">会员优惠价:</text>
     <text class="buy-price">¥{{storeDetail.good_group_price}}</text>
   </view>
-  <text class="buy-btn">立即购买</text>
+  <text class="buy-btn" bindtap="pay">立即购买</text>
 </view>

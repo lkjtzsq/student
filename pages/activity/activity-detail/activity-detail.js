@@ -31,8 +31,11 @@ Page({
             wx.showToast({
               title: '报名成功'
             })
+            app.globalData.mineCurrentData = 1
+            wx.switchTab({
+              url: "/pages/mine/mine"
+            })
           }else{
-           
             wx.showModal({
               title: '提示',
               content: res.data.message,
@@ -144,7 +147,7 @@ Page({
       })
     }
   },
-  //付费
+  //活动付费
   pay: function() {
     var that = this
     var token = wx.getStorageSync("token");
@@ -172,8 +175,12 @@ Page({
                 console.log("成功")
                 console.log(res)
                 if (res.errMsg == "requestPayment:ok"){
-                  that.setData({
-                    is_join:1
+                  // that.setData({
+                  //   is_join:1
+                  // })
+                  app.globalData.mineCurrentData=1
+                  wx.switchTab({
+                    url: "/pages/mine/mine"
                   })
                 }
               },
