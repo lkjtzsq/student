@@ -39,7 +39,7 @@ Page({
                   },
                   data: {
                     good_id: that.data.storeDetail.id,
-                    good_num: 1,
+                    good_number: 1,
                     address:res
                   },
                   success: function (res) {
@@ -66,6 +66,12 @@ Page({
                           console.log("失败")
                           console.log(res)
                         }
+                      })
+                    }else{
+                      wx.showModal({
+                        title: '提示',
+                        showCancel:false,
+                        content:res.data.message  
                       })
                     }
                   },
@@ -105,7 +111,7 @@ Page({
                     },
                     data: {
                       good_id: that.data.storeDetail.id,
-                      good_num: 1,
+                      good_number: 1,
                       address: res
                     },
                     success: function (res) {
