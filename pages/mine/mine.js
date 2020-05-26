@@ -44,6 +44,9 @@ Page({
         },
         success: function (res) {
           console.log(res)
+          that.setData({
+            classList:res.data.data
+          })
         }
       })
     }
@@ -63,6 +66,24 @@ Page({
         that.setData({
           activityList: res.data.data
         })
+      }
+    })
+  },
+  //已购活动
+  getGoodList: function () {
+    var token = wx.getStorageSync("token")
+    var that = this
+    wx.request({
+      url: app.globalData.studentBase + '/api/user/user_good',
+      method: "POST",
+      header: {
+        Authorization: token
+      },
+      success: function (res) {
+        console.log(res)
+        // that.setData({
+        //   activityList: res.data.data
+        // })
       }
     })
   },
@@ -145,9 +166,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getClassList()
-    this.getActivityList()
-    console.log(options)
+   
    
   },
 
@@ -162,8 +181,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.checkLogin();
-    this.getScore();
+    this.getClassList()
+    this.getActivityList()
+    this.getGoodList()
+    this.checkLogin()
+    this.getScore()
     this.setData({
       currentData: app.globalData.mineCurrentData
     })
