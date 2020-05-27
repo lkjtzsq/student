@@ -182,12 +182,20 @@ Page({
                   wx.switchTab({
                     url: "/pages/mine/mine"
                   })
+                }else{
+                  
                 }
               },
               fail(res) {
                 console.log("失败")
                 console.log(res)
               }
+            })
+          }else{
+            wx.showModal({
+              title: '提示',
+              showCancel: false,
+              content: res.data.message
             })
           }
         },

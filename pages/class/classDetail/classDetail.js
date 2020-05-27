@@ -70,6 +70,12 @@ Page({
                 console.log(res)
               }
             })
+          }else{
+            wx.showModal({
+              title: '提示',
+              showCancel:false,
+              content: res.data.message
+            })
           }
         },
         fail: function (err) {
