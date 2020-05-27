@@ -11,7 +11,8 @@ Page({
     classroom_name: wx.getStorageSync("classroom_name"),
     birth: wx.getStorageSync("birth"),
     classList:[],
-    activityList:[]
+    activityList:[],
+    goodList:[]
   },
   //我的积分
   getScore(){
@@ -81,9 +82,9 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        // that.setData({
-        //   activityList: res.data.data
-        // })
+        that.setData({
+          goodList: res.data.data
+        })
       }
     })
   },

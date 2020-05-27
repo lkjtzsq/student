@@ -54,76 +54,13 @@
     </view>
     <view class="toggle-item" wx:if="{{currentData == 2}}">
       <view class="product-list">
-        <view class="product">
-          <image class="product-image" mode="aspectFill" src="http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853"></image>
-          <text class="product-title">小学生六年级网课语文历史政治数学等等</text>
-          <text class="product-intro">帮助快速绘画学习以及提高自身能力基础，欢迎购买</text>
+        <view class="product" wx:for="{{goodList}}" wx:key="gl">
+          <image class="product-image" mode="aspectFill" src="{{item.good_cover}}"></image>
+          <text class="product-title">{{item.good_name}}</text>
+          <text class="product-intro"></text>
           <view class="data-panel">
-            <text class="price">¥149</text>
-            <text class="end-time">截止时间:20:50:31</text>
-          </view>
-        </view>
-        <view class="product">
-          <image class="product-image" mode="aspectFill" src="http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853"></image>
-          <text class="product-title">小学生六年级网课语文历史政治数学等等</text>
-          <text class="product-intro">帮助快速绘画学习以及提高自身能力基础，欢迎购买</text>
-          <view class="data-panel">
-            <text class="price">¥149</text>
-            <text class="end-time">截止时间:20:50:31</text>
-          </view>
-        </view>
-        <view class="product">
-          <image class="product-image" mode="aspectFill" src="http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853"></image>
-          <text class="product-title">小学生六年级网课语文历史政治数学等等</text>
-          <text class="product-intro">帮助快速绘画学习以及提高自身能力基础，欢迎购买</text>
-          <view class="data-panel">
-            <text class="price">¥149</text>
-            <text class="end-time">截止时间:20:50:31</text>
-          </view>
-        </view>
-        <view class="product">
-          <image class="product-image" mode="aspectFill" src="http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853"></image>
-          <text class="product-title">小学生六年级网课语文历史政治数学等等</text>
-          <text class="product-intro">帮助快速绘画学习以及提高自身能力基础，欢迎购买</text>
-          <view class="data-panel">
-            <text class="price">¥149</text>
-            <text class="end-time">截止时间:20:50:31</text>
-          </view>
-        </view>
-        <view class="product">
-          <image class="product-image" mode="aspectFill" src="http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853"></image>
-          <text class="product-title">小学生六年级网课语文历史政治数学等等</text>
-          <text class="product-intro">帮助快速绘画学习以及提高自身能力基础，欢迎购买</text>
-          <view class="data-panel">
-            <text class="price">¥149</text>
-            <text class="end-time">截止时间:20:50:31</text>
-          </view>
-        </view>
-        <view class="product">
-          <image class="product-image" mode="aspectFill" src="http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853"></image>
-          <text class="product-title">小学生六年级网课语文历史政治数学等等</text>
-          <text class="product-intro">帮助快速绘画学习以及提高自身能力基础，欢迎购买</text>
-          <view class="data-panel">
-            <text class="price">¥149</text>
-            <text class="end-time">截止时间:20:50:31</text>
-          </view>
-        </view>
-        <view class="product">
-          <image class="product-image" mode="aspectFill" src="http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853"></image>
-          <text class="product-title">小学生六年级网课语文历史政治数学等等</text>
-          <text class="product-intro">帮助快速绘画学习以及提高自身能力基础，欢迎购买</text>
-          <view class="data-panel">
-            <text class="price">¥149</text>
-            <text class="end-time">截止时间:20:50:31</text>
-          </view>
-        </view>
-        <view class="product">
-          <image class="product-image" mode="aspectFill" src="http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853"></image>
-          <text class="product-title">小学生六年级网课语文历史政治数学等等</text>
-          <text class="product-intro">帮助快速绘画学习以及提高自身能力基础，欢迎购买</text>
-          <view class="data-panel">
-            <text class="price">¥149</text>
-            <text class="end-time">截止时间:20:50:31</text>
+            <text class="price"></text>
+            <text class="end-time"></text>
           </view>
         </view>
       </view>
