@@ -22,8 +22,15 @@ Page({
       },
       success:function(res){
         console.log(res)
+        var classroom_is_group=res.data.data.classroom_is_group
+        var classroom_group_price=res.data.data.classroom_group_price
+        var isGroup=false
+        if(classroom_is_group==1 && classroom_group_price >0){
+          isGroup=true
+        }
         that.setData({
-          classDetail:res.data.data
+          classDetail:res.data.data,
+          isGroup:isGroup
         })
       }
     })
@@ -32,6 +39,11 @@ Page({
   pay: function () {
     var that = this
     var token = wx.getStorageSync("token");
+    var isGroup=this.data.isGroup
+    var mode=null
+    if(isGroup){
+      mode="group"
+    }
     if (token) {
       wx.request({
         url: app.globalData.studentBase + '/api/pay/classroom',
@@ -40,7 +52,8 @@ Page({
           Authorization: token
         },
         data: {
-          classroom_id: that.data.classDetail.id
+          classroom_id: that.data.classDetail.id,
+          mode:mode
         },
         success: function (res) {
           console.log(res)

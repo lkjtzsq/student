@@ -15,7 +15,8 @@
 </view>
 <view class="buy-group">
   <view class="buy-price">
-    <text class="buy-text">会员优惠价:</text>
+    <text class="buy-text" wx:if="{{isGroup}}">会员优惠价:</text>
+    <text class="buy-text" wx:if="{{!isGroup}}">价格:</text>
     <text class="buy-price">¥{{storeDetail.good_group_price}}</text>
   </view>
   <text class="buy-btn" bindtap="pay">立即购买</text>

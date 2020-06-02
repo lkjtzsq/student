@@ -13,7 +13,11 @@ Page({
   pay: function () {
     var that = this
     var token = wx.getStorageSync("token");
-  
+    var isGroup=this.data.isGroup
+    var mode=null
+    if(isGroup){
+      mode="group"
+    }
     if (token) {
       wx.getSetting({
         success(res) {
@@ -40,7 +44,8 @@ Page({
                   data: {
                     good_id: that.data.storeDetail.id,
                     good_number: 1,
-                    address:res
+                    address:res,
+                    mode:mode
                   },
                   success: function (res) {
                     console.log(res)
@@ -112,7 +117,8 @@ Page({
                     data: {
                       good_id: that.data.storeDetail.id,
                       good_number: 1,
-                      address: res
+                      address: res,
+                      mode:mode
                     },
                     success: function (res) {
                       console.log(res)
@@ -180,8 +186,15 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        var good_is_group=res.data.data.good_is_group
+        var good_group_price=res.data.data.good_group_price
+        var isGroup=false
+        if(good_is_group==1 && good_group_price >0){
+          isGroup=true
+        }
         that.setData({
-          storeDetail: res.data.data
+          storeDetail: res.data.data,
+          isGroup:isGroup
         })
       }
     })

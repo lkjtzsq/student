@@ -3,7 +3,8 @@
   <rich-text nodes="{{activityDetail}}"></rich-text>
 </view>
 <view class="join-panel" wx:if="{{is_free=='charge' && is_join!==1}}">
-  <text class="join-text">新学员优惠价：</text>
+  <text class="join-text" wx:if="{{isGroup}}">新学员优惠价：</text>
+  <text class="join-text" wx:if="{{!isGroup}}">价格：</text>
   <text class="join-price">¥{{act_price}}</text>
   <view class="join-btn" bindtap="pay">我要报名</view>
 </view>

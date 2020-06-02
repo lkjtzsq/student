@@ -113,12 +113,19 @@ Page({
       },
       success: function(res) {
         console.log(res)
+        var act_is_group=res.data.data.act_is_group
+        var act_group_price=res.data.data.act_group_price
+        var isGroup=false
+        if(act_is_group==1 && act_group_price >0){
+          isGroup=true
+        }
         var article = res.data.data.act_content.replace(/<p([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<p').replace(/<p([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<p').replace(/<p>/ig, '<p class="p_class">').replace(/<img([\s\w"-=\/\.:;]+)((?:(height="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(width="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(style="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(alt="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)/ig, '<img$1 class="pho"').replace(/<ul>/ig, '<ul class="ul_class">').replace(/<li>/ig, '<li class="li_class">').replace(/<span([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<span').replace(/<span([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<span').replace(/<span>/ig, '<span class="span_class">')
         that.setData({
           activityDetail: article,
           is_free: res.data.data.is_free,
           act_price: res.data.data.act_price,
-          title: res.data.data.act_title
+          title: res.data.data.act_title,
+          isGroup:isGroup
         })
         wx.hideToast()
       }
@@ -151,6 +158,11 @@ Page({
   pay: function() {
     var that = this
     var token = wx.getStorageSync("token");
+    var isGroup=this.data.isGroup
+    var mode=null
+    if(isGroup){
+      mode="group"
+    }
     if (token) {
       wx.request({
         url: app.globalData.studentBase + '/api/pay/act',
@@ -159,7 +171,8 @@ Page({
           Authorization: token
         },
         data: {
-          act_id: that.data.id
+          act_id: that.data.id,
+          mode:mode
         },
         success: function(res) {
           console.log(res)

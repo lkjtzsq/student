@@ -64,36 +64,44 @@ Page({
     var id = this.data.id
     var commentValue = this.data.commentValue
     var key = 'dynamicList[' + index + '].comments'
-    wx.request({
-      url: app.globalData.studentBase +'/api/user/comment',
-      method:"POST",
-      header:{
-        Authorization:token
-      },
-      data:{
-        comment:commentValue,
-        key_type:1,
-        key_id:id
-      },
-      success:function(res){
-        console.log(res)
-        that.data.dynamicList[index].comments.unshift({
-          nickname: nickname,
-          comment: that.data.commentValue
-        })
-        that.setData({
-          [key]: that.data.dynamicList[index].comments,
-          commentPanelShow: !that.data.commentPanelShow
-        })
-        if(res.data.score.offset){
-          wx.showModal({
-            title: '提示',
-            showCancel:false,
-            content: '留言成功！新增' + res.data.score.offset + '积分'  
+    if(commentValue==""){
+      wx.showModal({
+        title: '提示',
+        showCancel:false,
+        content: '留言不能为空！'  
+      })
+    }else{
+      wx.request({
+        url: app.globalData.studentBase +'/api/user/comment',
+        method:"POST",
+        header:{
+          Authorization:token
+        },
+        data:{
+          comment:commentValue,
+          key_type:1,
+          key_id:id
+        },
+        success:function(res){
+          console.log(res)
+          that.data.dynamicList[index].comments.unshift({
+            nickname: nickname,
+            comment: that.data.commentValue
           })
+          that.setData({
+            [key]: that.data.dynamicList[index].comments,
+            commentPanelShow: !that.data.commentPanelShow
+          })
+          if(res.data.score.offset){
+            wx.showModal({
+              title: '提示',
+              showCancel:false,
+              content: '留言成功！新增' + res.data.score.offset + '积分'  
+            })
+          }
         }
-      }
-    })
+      })
+    }
     
   },
   //动态列表
