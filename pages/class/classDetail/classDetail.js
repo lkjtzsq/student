@@ -28,9 +28,11 @@ Page({
         if(classroom_is_group==1 && classroom_group_price >0){
           isGroup=true
         }
+        var article = res.data.data.classroom_remark.replace(/<p([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<p').replace(/<p([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<p').replace(/<p>/ig, '<p class="p_class">').replace(/<img([\s\w"-=\/\.:;]+)((?:(height="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(width="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(style="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(alt="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)/ig, '<img$1 class="pho"').replace(/<ul>/ig, '<ul class="ul_class">').replace(/<li>/ig, '<li class="li_class">').replace(/<span([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<span').replace(/<span([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<span').replace(/<span>/ig, '<span class="span_class">')
         that.setData({
           classDetail:res.data.data,
-          isGroup:isGroup
+          isGroup:isGroup,
+          article: article
         })
       }
     })

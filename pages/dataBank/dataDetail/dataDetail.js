@@ -64,6 +64,7 @@ Page({
           },
           fail:function(err){
             console.log('下载失败')
+            console.log(err)
           }
         })
         

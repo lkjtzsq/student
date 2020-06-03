@@ -1,5 +1,6 @@
 <view class="container">
   <image class="class-img" src="{{classDetail.classroom_cover}}" mode="widthFix"></image>
+  <rich-text nodes="{{article}}"></rich-text>
   <view class="join-panel" wx:if="{{classDetail.is_free=='charge'}}">
     <text class="join-text" wx:if="{{isGroup}}">新学员优惠价：</text>
     <text class="join-text" wx:if="{{!isGroup}}">价格：</text>

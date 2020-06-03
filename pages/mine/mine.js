@@ -14,6 +14,12 @@ Page({
     activityList:[],
     goodList:[]
   },
+  //联系我们
+  contact(){
+    wx.navigateTo({
+      url: '/pages/contact/contact'
+    })
+  },
   //我的积分
   getScore(){
     var that=this
@@ -70,7 +76,7 @@ Page({
       }
     })
   },
-  //已购活动
+  //已购商品
   getGoodList: function () {
     var token = wx.getStorageSync("token")
     var that = this
@@ -96,12 +102,21 @@ Page({
       url: '/pages/class/classDetail/classDetail?id=' + id
     })
   },
+  // 活动详情跳转
   toActivityDetail:function(e){
     console.log(e)
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/activity/activity-detail/activity-detail?id=' + id
     })
+  },
+  //商品详情跳转
+  toStoreDetail(e){
+    // console.log(e)
+    // var id = e.currentTarget.dataset.id
+    // wx.navigateTo({
+    //   url: '/pages/store/storeDetail/storeDetail?id=' + id
+    // })
   },
   //课表
   goSchedule:function(){

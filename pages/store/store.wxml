@@ -28,7 +28,9 @@
             <text class="product-intro">{{item.good_description}}</text>
             <view class="data-panel">
               <text class="price">￥{{item.good_price}}</text>
-              <text class="end-time"></text>
+            </view>
+            <view class="data-panel2" wx:if="{{item.good_end_at}}">
+              <text class="end-time">截止时间：{{item.good_end_at}}</text>
             </view>
           </view>
 
@@ -44,7 +46,9 @@
             <text class="product-intro">{{item.good_description}}</text>
             <view class="data-panel">
               <text class="price">￥{{item.good_price}}</text>
-              <text class="end-time">{{item.tuan_good_end_at}}</text>
+            </view>
+            <view class="data-panel2" wx:if="{{item.tuan_good_end_at}}">
+              <text class="end-time">截止时间：{{item.tuan_good_end_at}}</text>
             </view>
           </view>
         </view>

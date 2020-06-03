@@ -1,85 +1,89 @@
 <view style="background: #F9FAFB;overflow:hidden;">
-<view wx:if="{{nickname}}">
-  <view class="userinfo">
-    <image class="avatar-path" src="{{avatar_path}}"></image>
-    <view class="utext">
-      <view class="utext-top">
-        <text class="nickname">{{nickname}}</text>
-        <text class="grade" wx:if="{{classroom_name}}">{{classroom_name}}</text>
+  <view wx:if="{{nickname}}">
+    <view class="userinfo">
+      <image class="avatar-path" src="{{avatar_path}}"></image>
+      <view class="utext">
+        <view class="utext-top">
+          <text class="nickname">{{nickname}}</text>
+          <text class="grade" wx:if="{{classroom_name}}">{{classroom_name}}</text>
+        </view>
+        <view class="date">{{birth}}</view>
       </view>
-      <view class="date">{{birth}}</view>
+      <view class="schedule" bindtap="goSchedule">
+        <image class="schedule-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/schedule.png"></image>
+        <text class="schedule-text">课表</text>
+      </view>
     </view>
-    <view class="schedule" bindtap="goSchedule">
-      <image class="schedule-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/schedule.png"></image>
-      <text class="schedule-text">课表</text>
+    <view class="integral">
+      <image class="integral-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/integral.png"></image>
+      <text class="integral-text">我的积分：</text>
+      <text class="integral-num">{{userScore}}</text>
     </view>
-  </view>
-  <view class="integral">
-    <image class="integral-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/integral.png"></image>
-    <text class="integral-text">我的积分：</text>
-    <text class="integral-num">{{userScore}}</text>
-  </view>
-  <view style="height:30rpx;background:#fff;"></view>
-  <view class='topTabSwiper'>
-    <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>
-      <view class="current-line">我的课程</view>
+    <view style="height:30rpx;background:#fff;"></view>
+    <view class='topTabSwiper'>
+      <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>
+        <view class="current-line">我的课程</view>
+      </view>
+      <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>
+        <view class="current-line">已购活动</view>
+      </view>
+      <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>
+        <view class="current-line">已购商品</view>
+      </view>
     </view>
-    <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>
-      <view class="current-line">已购活动</view>
-    </view>
-    <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>
-      <view class="current-line">已购商品</view>
-    </view>
-  </view>
-  <view class="toggle-box">
-    <view class="toggle-item" wx:if="{{currentData == 0}}">
-      <view class="choiceness-container">
-        <view class="choiceness-item" wx:for="{{classList}}" wx:key="cl" bindtap="toClassDetail" data-id="{{item.id}}">
-          <image class="choiceness-item-img" mode="aspectFill" src="{{item.classroom_cover}}"></image>
-          <view class="choiceness-item-text">
-            <text class="choiceness-item-title">{{item.classroom_name}}</text>
-            <text class="choiceness-item-desc"></text>
-            <view class="end-date">有效期：{{item.classroom_start_at}}-{{item.classroom_end_at}}</view>
+    <view class="toggle-box">
+      <view class="toggle-item" wx:if="{{currentData == 0}}">
+        <view class="choiceness-container">
+          <view class="choiceness-item" wx:for="{{classList}}" wx:key="cl" bindtap="toClassDetail" data-id="{{item.id}}">
+            <image class="choiceness-item-img" mode="aspectFill" src="{{item.classroom_cover}}"></image>
+            <view class="choiceness-item-text">
+              <text class="choiceness-item-title">{{item.classroom_name}}</text>
+              <text class="choiceness-item-desc"></text>
+              <view class="end-date">有效期：{{item.classroom_start_at}}-{{item.classroom_end_at}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="toggle-item" wx:if="{{currentData == 1}}">
+        <view class="activity">
+          <view class="activity-item" wx:for="{{activityList}}" wx:key="at" bindtap="toActivityDetail" data-id="{{item.id}}">
+            <image class="activity-pic" mode="aspectFill" src="{{item.act_cover}}"></image>
+            <text class="activity-title">{{item.act_title}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="toggle-item" wx:if="{{currentData == 2}}">
+        <view class="product-list">
+          <view class="product" wx:for="{{goodList}}" wx:key="gl" bindtap="toStoreDetail" data-id="{{item.id}}">
+            <image class="product-image" mode="aspectFill" src="{{item.good_cover}}"></image>
+            <text class="product-title">{{item.good_name}}</text>
+            <view class="product-status">
+              <text class="product-status1" wx:if="{{item.shipment_state=='shipped'}}">已发货</text>
+              <text class="product-status2" wx:if="{{item.shipment_state=='ready'}}">准备中</text>
+            </view>
+            <text class="product-intro"></text>
+            <view class="data-panel">
+              <text class="price"></text>
+              <text class="end-time"></text>
+            </view>
           </view>
         </view>
       </view>
     </view>
-    <view class="toggle-item" wx:if="{{currentData == 1}}">
-      <view class="activity">
-        <view class="activity-item" wx:for="{{activityList}}" wx:key="at" bindtap="toActivityDetail" data-id="{{item.id}}">
-          <image class="activity-pic" mode="aspectFill" src="{{item.act_cover}}"></image>
-          <text class="activity-title">{{item.act_title}}</text>
-        </view>
-      </view>
+  </view>
+
+  <button class="login-button" wx:if="{{!nickname}}" type="primary" bindtap="login">登 录</button>
+
+  <view class="help">
+    <view class="help-item" bindtap="book">
+      <text class="help-text">订阅消息</text>
+      <image class="help-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
     </view>
-    <view class="toggle-item" wx:if="{{currentData == 2}}">
-      <view class="product-list">
-        <view class="product" wx:for="{{goodList}}" wx:key="gl">
-          <image class="product-image" mode="aspectFill" src="{{item.good_cover}}"></image>
-          <text class="product-title">{{item.good_name}}</text>
-          <text class="product-intro"></text>
-          <view class="data-panel">
-            <text class="price"></text>
-            <text class="end-time"></text>
-          </view>
-        </view>
-      </view>
+    <view class="help-line"></view>
+    <view class="help-item" bindtap="contact">
+      <text class="help-text">联系我们</text>
+      <image class="help-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
     </view>
   </view>
-</view>
-
-<button class="login-button" wx:if="{{!nickname}}" type="primary" bindtap="login">登 录</button>
-
-<view class="help">
-  <view class="help-item" bindtap="book">
-    <text class="help-text">订阅消息</text>
-    <image class="help-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
-  </view>
-  <view class="help-line"></view>
-  <view class="help-item">
-    <text class="help-text">联系我们</text>
-    <image class="help-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
-  </view>
-</view>
-<button class="quit-button" wx:if="{{nickname}}" bindtap="quitLogin" type="warn">退出登录</button>
+  <button class="quit-button" wx:if="{{nickname}}" bindtap="quitLogin" type="warn">退出登录</button>
 </view>

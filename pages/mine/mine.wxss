@@ -210,6 +210,7 @@
   margin-bottom: 36rpx;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  height: 490rpx;
 }
 
 .product:nth-last-child(2), .product:last-child {
@@ -294,10 +295,33 @@
   height: 80rpx;
   font-size: 32rpx;
 }
+
 .quit-button {
   border-radius: 50px;
   margin: 40rpx auto;
   width: 250rpx;
   height: 80rpx;
   font-size: 32rpx;
+}
+
+.product-status {
+  margin: 4rpx 10rpx 0;
+}
+
+.product-status2 {
+  font-size: 24rpx;
+  background: #ff5c59;
+  display: inline-block;
+  color: #fff;
+  padding: 0rpx 6rpx;
+  border-radius: 3px;
+}
+
+.product-status1 {
+  font-size: 24rpx;
+  border: 1px solid #32c5ff;
+  display: inline-block;
+  color: #fff;
+  padding: 0rpx 6rpx;
+  border-radius: 3px;
 }

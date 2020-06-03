@@ -5,9 +5,9 @@
       <text class="good-group-price">¥{{storeDetail.good_group_price}}</text>
       <text class="good-price">¥{{storeDetail.good_price}}</text>
     </view>
-    <view class="time">
+    <view class="time" wx:if="{{false}}">
       截止时间：
-      <text class="end-time">20:50:31</text>
+      <text class="end-time"></text>
     </view>
   </view>
   <text class="title">{{storeDetail.good_name}}</text>
