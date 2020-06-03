@@ -1,4 +1,4 @@
-<image class="pic" src="{{storeDetail.good_cover}}"></image>
+<image class="pic" src="{{storeDetail.good_cover}}" mode="widthFix"></image>
 <view class="container">
   <view class="top">
     <view class="price">

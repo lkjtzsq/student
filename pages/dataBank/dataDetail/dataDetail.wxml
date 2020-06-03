@@ -1,9 +1,15 @@
-<image class="pic" src="http://xuexi.5rkk.com/uploads/base64img/20200506/17c521e4b7b7135826ff2ccfa52c4697.jpeg"></image>
+<image class="pic" src="{{detail.material_cover}}" mode="widthFix"></image>
 <view class="container">
-  <text class="title">￼￼孩子的第一本经济学启蒙绘本：当动物有钱了(教会孩子如何看待财富，</text>
+  <text class="title">￼￼{{detail.material_name}}</text>
   <view class="content">
-    <text>宝贝安全自我保护绘本》包括五册，分别是：休想骗我跟你走》在外面和爸爸妈妈走散了怎么办？怎样处理陌生人的搭讪？发现自己被坏人骗走了怎么办？别着急，看看故事里的小西怎样机智面对。</text>
-    <text>
-《住手！不可以摸我》有个坏叔叔，总是不怀好意的亲亲你……宝贝们是否了解什么样的接触才算是正常范围的接触？被坏人欺负了怎么办？我们看看故事里聪明的小西怎么做。</text>
+    <text></text>
+    <text></text>
   </view>
+</view>
+<view class="join-panel">
+  <view class="join-btn" bindtap="joinFree" bindtap="convert">立即兑换</view>
+</view>
+<view class="video-bg" wx:if="{{videoSrc}}">
+  <video controls src="{{videoSrc}}"></video>
+  <text class="video-close" bindtap="closeVideo">关 闭</text>
 </view>

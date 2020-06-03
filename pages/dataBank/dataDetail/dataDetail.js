@@ -1,4 +1,4 @@
-// pages/dataBank/dataDetail/dataDetail.js
+var app = getApp()
 Page({
 
   /**
@@ -7,12 +7,95 @@ Page({
   data: {
 
   },
-
+  //关闭视频
+  closeVideo(){
+    this.setData({
+      videoSrc:""
+    })
+  },
+  //积分兑换
+  convert(){
+    var token = wx.getStorageSync('token')
+    var that=this
+    wx.request({
+      url: app.globalData.studentBase + '/api/pay/jifen/material',
+      method: "POST",
+      header: {
+        Authorization: token
+      },
+      data: {
+        material_id: that.data.id
+      },
+      success:function(res){
+        console.log(res.data.meterial_source)
+        wx.showToast({
+          title: '素材下载中...',
+          icon:'loading',
+          duration:160000
+        })
+        wx.downloadFile({
+          // 示例 url，并非真实存在
+          url: res.data.meterial_source,
+          success: function (res) {
+            console.log('下载成功')
+            const filePath = res.tempFilePath
+            console.log(filePath)
+            if((filePath.indexOf(".jpg") !=-1) || (filePath.indexOf(".png") !=-1) || (filePath.indexOf(".gif") !=-1) || (filePath.indexOf(".jpg") !=-1)){
+              wx.previewImage({
+                urls: [filePath]
+              })
+            }else if(filePath.indexOf(".mp4") !=-1){
+              that.setData({
+                videoSrc:filePath
+              })
+            }else{
+              wx.openDocument({
+                filePath: filePath,
+                success: function (res) {
+                  console.log('打开文档成功')
+                },
+                fail:function(err){
+                  console.log(err)
+                  console.log('打开文档失败')
+                }
+              })
+            }
+            wx.hideToast()
+          },
+          fail:function(err){
+            console.log('下载失败')
+          }
+        })
+        
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var id = options.id
+    this.setData({
+      id:id
+    })
+    var token = wx.getStorageSync('token')
+    var that = this
+    wx.request({
+      url: app.globalData.studentBase + '/api/materials/detail',
+      method: "POST",
+      header: {
+        Authorization: token
+      },
+      data: {
+        material_id: id
+      },
+      success: function(res) {
+        console.log(res)
+        that.setData({
+          detail:res.data.data
+        })
+      }
+    })
   },
 
   /**
