@@ -8,19 +8,26 @@
   border-bottom: 1px solid #e7e7e7;
   margin-bottom: 30rpx;
 }
-.choiceness-item:last-child{
+
+.choiceness-item:last-child {
   border: none;
 }
+
 .choiceness-item-text {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
-  /* justify-content: space-between; */
+  flex: auto;
+  overflow: hidden;
+
 }
 
 .choiceness-item-title {
   font-size: 32rpx;
   margin-bottom: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
 }
 
 .choiceness-item-desc {

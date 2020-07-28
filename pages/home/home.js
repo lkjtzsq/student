@@ -143,18 +143,11 @@ Page({
 
   },
   //进入成长足迹
-  enterFootprint: function (event) {
-    var token = wx.getStorageSync("token")
-    var enter = event.currentTarget.dataset.enter
-    if (token) {
+  enterAboutUs: function (event) {
+
       wx.navigateTo({
-        url: '../footprint/footprint'
+        url: '../aboutUs/aboutUs'
       })
-    } else {
-      wx.navigateTo({
-        url: '../login/login?enter=' + enter
-      })
-    }
 
   },
   //进入热门活动
@@ -189,4 +182,9 @@ Page({
       }
     }
   },
+  toClassList(){
+    wx.navigateTo({
+      url: '../class/classList/classList'
+    })
+  }
 })

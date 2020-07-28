@@ -1,0 +1,33 @@
+<!-- <view class="choiceness-container">
+  <view class="choiceness-item" wx:for="{{classList}}" wx:key="*this" bindtap="toClassDetail" data-id="{{item.id}}">
+    <image class="choiceness-item-img" mode="aspectFill" src="{{item.classroom_cover}}"></image>
+    <view class="choiceness-item-text">
+      <text class="choiceness-item-title">{{item.classroom_name}}</text>
+      <text class="choiceness-item-desc">截止至：{{item.classroom_end_at}}</text>
+      <view class="price">¥ {{item.classroom_price}}</view>
+    </view>
+  </view>
+</view> -->
+<view class="choiceness-container">
+  <view class="choiceness-item">
+    <image class="choiceness-item-img" mode="aspectFill" src="http://xuexi.5rkk.com/uploads/base64img/20200726/1b434292dcc693be2e3274326a8aaf33.jpeg"></image>
+    <view class="choiceness-item-text">
+      <text class="choiceness-item-title">中国话大房间肯定反间谍法的开发了的弗兰克大幅度附加费</text>
+      <text class="choiceness-item-desc">日历中的历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际通历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际</text>
+    </view>
+  </view>
+  <view class="choiceness-item">
+    <image class="choiceness-item-img" mode="aspectFill" src="http://xuexi.5rkk.com/uploads/base64img/20200726/1b434292dcc693be2e3274326a8aaf33.jpeg"></image>
+    <view class="choiceness-item-text">
+      <text class="choiceness-item-title">中国话大房间肯定反间谍法的开发了的弗兰克大幅度附加费</text>
+      <text class="choiceness-item-desc">日历中的历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际通历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际</text>
+    </view>
+  </view>
+  <view class="choiceness-item">
+    <image class="choiceness-item-img" mode="aspectFill" src="http://xuexi.5rkk.com/uploads/base64img/20200726/1b434292dcc693be2e3274326a8aaf33.jpeg"></image>
+    <view class="choiceness-item-text">
+      <text class="choiceness-item-title">中国话大房间肯定反间谍法的开发了的弗兰克大幅度附加费</text>
+      <text class="choiceness-item-desc">日历中的历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际通历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际</text>
+    </view>
+  </view>
+</view>

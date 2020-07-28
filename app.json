@@ -18,7 +18,9 @@
     "pages/store/storeDetail/storeDetail",
     "pages/schedule/schedule",
     "pages/dataBank/dataDetail/dataDetail",
-    "pages/contact/contact"
+    "pages/contact/contact",
+    "pages/aboutUs/aboutUs",
+    "pages/class/classList/classList"
   ],
   "window": {
     "backgroundTextStyle": "light",

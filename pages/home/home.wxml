@@ -18,9 +18,9 @@
 </view>
 <!-- 4组按钮区域 -->
 <view class="btn-group">
-  <view class="btn-item" bindtap="enterFootprint" data-enter="footprint">
-    <image class="btn-img" src="https://xuexi.5rkk.com/wxxcx/images/icon/foot.png"></image>
-    <text class="btn-text">成长足迹</text>
+  <view class="btn-item" bindtap="enterAboutUs" data-enter="footprint">
+    <image class="btn-img" src="https://xuexi.5rkk.com/wxxcx/images/icon/aboutus.png"></image>
+    <text class="btn-text">关于我们</text>
   </view>
    <view class="btn-item" bindtap="enterActivity">
     <image class="btn-img" src="https://xuexi.5rkk.com/wxxcx/images/icon/activity.png"></image>
@@ -35,6 +35,7 @@
     <text class="btn-text">资料库</text>
   </view>
 </view>
+<text bindtap="toClassList">课程列表</text>
 <!-- 热门推荐 -->
 <view class="hot">
   <view class="hot-title">
