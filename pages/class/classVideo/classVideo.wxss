@@ -1,0 +1,73 @@
+.container{
+  padding-bottom: 164rpx;
+}
+.content-container{
+  display: flex;
+  flex-direction: column;
+}
+.video-box{
+  width:100%;
+  height: 420rpx;
+}
+.video{
+  width:100%;
+  height:100%;
+  display: block;
+}
+.title{
+  padding: 30rpx;
+  font-weight: bold;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color:#333;
+}
+.content{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color:#666;
+  padding:0 30rpx 50rpx;
+}
+.join-panel{
+  position: fixed;
+  width:-webkit-fill-available;
+  bottom:0;
+  height:84rpx;
+  background: #fff;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding:40rpx;
+  justify-content: space-between;
+  border-top:1px solid #dcdcdc;
+}
+
+.join-text{
+  font-size: 30rpx;
+  color: #000;
+}
+.join-price{
+  font-size: 30rpx;
+  color: #FF5C59;
+  flex: 1;
+}
+.join-btn{
+  width:300rpx;
+  height:84rpx;
+  background: #FF5C59;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 84rpx;
+  border-radius: 50px;
+}
+.free-btn{
+  display: block;
+  width:100%;
+  height:84rpx;
+  background: #FF5C59;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 84rpx;
+  border-radius: 50px;
+}

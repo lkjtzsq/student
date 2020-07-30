@@ -1,13 +1,42 @@
 <view class="container">
-  <image class="class-img" src="{{classDetail.classroom_cover}}" mode="widthFix"></image>
-  <rich-text nodes="{{article}}"></rich-text>
-  <view class="join-panel" wx:if="{{classDetail.is_free=='charge'}}">
-    <text class="join-text" wx:if="{{isGroup}}">新学员优惠价：</text>
-    <text class="join-text" wx:if="{{!isGroup}}">价格：</text>
-    <text class="join-price">¥{{classDetail.classroom_price}}</text>
-    <view class="join-btn" bindtap="pay">我要报名</view>
-  </view>
-  <view class="join-panel" wx:if="{{classDetail.is_free!=='charge'}}">
-    <view class="free-btn">免费报名</view>
-  </view>
+	<image class="class-img" src="{{classDetail.classroom_cover}}" mode="widthFix"></image>
+	<rich-text nodes="{{article}}"></rich-text>
+	<view class="class-list">
+		<text class="class-list-title"> 课程介绍</text>
+		<view class="choiceness-container">
+			<view class="choiceness-item">
+        <view class="choiceness-item-img-container">
+        	<image class="choiceness-item-img" mode="aspectFill" src="http://xuexi.5rkk.com/uploads/base64img/20200726/1b434292dcc693be2e3274326a8aaf33.jpeg"></image>
+          <text class="free-tag">免费</text>
+          <image wx:if="{{true}}" class="lock" src="https://xuexi.5rkk.com/wxxcx/images/icon/bofang.png"></image>
+          <image wx:else class="lock" src="https://xuexi.5rkk.com/wxxcx/images/icon/suo.png"></image>
+        </view>
+				<view class="choiceness-item-text">
+					<text class="choiceness-item-title">中国话大房间肯定反间谍法的开发了的弗兰克大幅度附加费</text>
+					<text class="choiceness-item-desc">日历中的历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际通历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际</text>
+				</view>
+			</view>
+      <view class="choiceness-item">
+        <view class="choiceness-item-img-container">
+        	<image class="choiceness-item-img" mode="aspectFill" src="http://xuexi.5rkk.com/uploads/base64img/20200726/1b434292dcc693be2e3274326a8aaf33.jpeg"></image>
+          <text class="free-tag">免费</text>
+          <image wx:if="{{false}}" class="lock" src="https://xuexi.5rkk.com/wxxcx/images/icon/bofang.png"></image>
+          <image wx:else class="lock" src="https://xuexi.5rkk.com/wxxcx/images/icon/suo.png"></image>
+        </view>
+				<view class="choiceness-item-text">
+					<text class="choiceness-item-title">中国话大房间肯定反间谍法的开发了的弗兰克大幅度附加费</text>
+					<text class="choiceness-item-desc">日历中的历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际通历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际历法又分为阴历、阳历和阴阳合历,三种，阳历亦即太阳历国际</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="join-panel" wx:if="{{classDetail.is_free=='charge'}}">
+		<text class="join-text" wx:if="{{isGroup}}">新学员优惠价：</text>
+		<text class="join-text" wx:if="{{!isGroup}}">价格：</text>
+		<text class="join-price">¥{{classDetail.classroom_price}}</text>
+		<view class="join-btn" bindtap="pay">我要报名</view>
+	</view>
+	<view class="join-panel" wx:if="{{classDetail.is_free!=='charge'}}">
+		<view class="free-btn">免费报名</view>
+	</view>
 </view>

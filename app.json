@@ -20,7 +20,8 @@
     "pages/dataBank/dataDetail/dataDetail",
     "pages/contact/contact",
     "pages/aboutUs/aboutUs",
-    "pages/class/classList/classList"
+    "pages/class/classList/classList",
+    "pages/class/classVideo/classVideo"
   ],
   "window": {
     "backgroundTextStyle": "light",

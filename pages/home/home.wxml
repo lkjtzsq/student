@@ -35,7 +35,7 @@
     <text class="btn-text">资料库</text>
   </view>
 </view>
-<text bindtap="toClassList">课程列表</text>
+<text bindtap="toClassDetail">课程详情</text>
 <!-- 热门推荐 -->
 <view class="hot">
   <view class="hot-title">

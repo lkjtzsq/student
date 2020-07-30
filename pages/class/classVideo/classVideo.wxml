@@ -1,0 +1,13 @@
+<view class="container">
+	<view class="content-container">
+		<view class="video-box">
+			<video class="video" autoplay="true" title="那地方减肥的卡卡的房间里的房间里老弟发块豆腐" enable-play-gesture="true" show-screen-lock-button="true" src="http://vod.cyol.com/vod/data/video/202007/27/1efbb89f-1185-40f4-d3b9-a1a89cb2cdda/transcode_449dfbee-fc95-56e7-53a0-bd8885c8.mp4/av-g.m3u8" poster="http://img.cyol.com/img/home/attachement/jpg/site2/20200723/IMG509a4c37368c5455024251.jpg"></video>
+		</view>
+		<text class="title">14天儿童美术速成班芬钢琴课程精选钢琴课程第二类增值电信业务中的信息服务业务</text>
+		<text class="content">6节干货课程+实时互动点评分享你可以用它收集灵感,保存有用的素材,计划旅行,晒晒自己想要的东西。花中花冠的一个组成部分，是花被的内部组成部分，是花无性的一个组成部分。花中花冠的一个组成部分，是花被的内部组成部分，是花无性的一个组成部分。花中花冠的一个组成部分，是花被的内部组成部分，是花无性的一个组成部分。部组成部分，是花无性的一个组成部分。花中花冠的一个组成部分，是花被的内部组成部分，是花无性的一个组成部分。部组成部分，是花无性的一个组成部分。花中花冠的一个组成部分，是花被的内部组成部分，是花无性的一个组成部分。</text>
+	</view>
+
+	<view class="join-panel" wx:if="{{classDetail.is_free!=='charge'}}">
+		<view class="free-btn">免费报名</view>
+	</view>
+</view>

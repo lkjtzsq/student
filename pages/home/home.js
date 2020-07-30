@@ -182,9 +182,9 @@ Page({
       }
     }
   },
-  toClassList(){
+  toClassDetail(){
     wx.navigateTo({
-      url: '../class/classList/classList'
+     url: '/pages/class/classVideo/classVideo?id=3'
     })
   }
 })

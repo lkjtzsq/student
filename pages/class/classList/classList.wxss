@@ -55,4 +55,6 @@
 .price {
   font-size: 32rpx;
   color: #ff5c59;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
