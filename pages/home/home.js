@@ -181,10 +181,5 @@ Page({
         console.log(err)
       }
     }
-  },
-  toClassDetail(){
-    wx.navigateTo({
-     url: '/pages/class/classVideo/classVideo?id=3'
-    })
   }
 })

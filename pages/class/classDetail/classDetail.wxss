@@ -68,14 +68,12 @@ rich-text{
   color: #333;
   margin-bottom: 20rpx;
   margin-top: 20rpx;
-  display: block;
   text-align: left;
 }
 
 .p_class {
   font-size: 28rpx;
   line-height:48rpx;
-  text-indent: 2em;
   margin-bottom: 20rpx;
 }
 
@@ -137,7 +135,6 @@ rich-text{
 .choiceness-item-desc {
   font-size: 24rpx;
   line-height: 32rpx;
-  height: 64rpx;
   color: #999990;
   overflow: hidden;
   text-overflow: ellipsis;

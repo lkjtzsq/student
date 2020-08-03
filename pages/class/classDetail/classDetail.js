@@ -5,7 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classDetail:{}
+    classDetail:{},
+    article:null
+  },
+  /**
+  * 跳转至视频播放页面
+  */
+  toClassVideo() {
+    wx.navigateTo({
+      url: '/pages/class/classVideo/classVideo',
+    })
   },
   //获取课程详情
   getClassDetail:function(id){
@@ -22,15 +31,16 @@ Page({
       },
       success:function(res){
         console.log(res)
-        var classroom_is_group=res.data.data.classroom_is_group
-        var classroom_group_price=res.data.data.classroom_group_price
+        var classroom_is_group=res.data.classroom_is_group
+        var classroom_group_price=res.data.classroom_group_price
         var isGroup=false
         if(classroom_is_group==1 && classroom_group_price >0){
           isGroup=true
         }
-        var article = res.data.data.classroom_remark.replace(/<p([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<p').replace(/<p([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<p').replace(/<p>/ig, '<p class="p_class">').replace(/<img([\s\w"-=\/\.:;]+)((?:(height="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(width="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(style="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(alt="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)/ig, '<img$1 class="pho"').replace(/<ul>/ig, '<ul class="ul_class">').replace(/<li>/ig, '<li class="li_class">').replace(/<span([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<span').replace(/<span([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<span').replace(/<span>/ig, '<span class="span_class">')
+        var article = res.data.classroom_remark.replace(/<p([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<p').replace(/<p([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<p').replace(/<p>/ig, '<p class="p_class">').replace(/<img([\s\w"-=\/\.:;]+)((?:(height="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(width="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(style="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(alt="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)/ig, '<img$1 class="pho"').replace(/<ul>/ig, '<ul class="ul_class">').replace(/<li>/ig, '<li class="li_class">').replace(/<span([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<span').replace(/<span([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<span').replace(/<span>/ig, '<span class="span_class">')
+        console.log(article)
         that.setData({
-          classDetail:res.data.data,
+          classDetail:res.data,
           isGroup:isGroup,
           article: article
         })
