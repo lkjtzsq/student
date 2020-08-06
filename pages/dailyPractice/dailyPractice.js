@@ -8,7 +8,7 @@ Page({
    */
   data: {
     imgUrl: "",
-    show: true,
+    show: false,
     question: "",
     path: "",
     audioFilePath: "",
@@ -299,7 +299,8 @@ Page({
             that.setData({
               question: practice_title,
               practice_id: practice_id,
-              practice_cover: practice_cover
+              practice_cover: practice_cover,
+              show: true,
             })
             if (can_answer == 0) {
               that.setData({

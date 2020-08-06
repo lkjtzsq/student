@@ -5,34 +5,49 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classDetail:{}
+    videoDetail:{},
+    id:null,
+    show:true
   },
-  //获取课程详情
-  getClassDetail:function(id){
+  /** 
+   *  用户登录判断 
+   */
+  checkLogin(){
     var token = wx.getStorageSync("token")
+    
+    if (!token) {
+      this.setData({
+        show:false
+      })
+      wx.navigateTo({
+        url: '/pages/login/login'
+      })
+    }else{
+      this.setData({
+        show:true
+      })
+    }
+  },
+  //获取视频详情
+  getVideoDetail:function(id){
     var that = this
     wx.request({
-      url: app.globalData.studentBase +'/api/classroom/detail',
+      url: app.globalData.studentBase +'/api/classroom/detail/video',
       method:"POST",
-      header:{
-        Authorization:token
-      },
       data:{
-        classroom_id:id
+        id:id
       },
       success:function(res){
         console.log(res)
-        var classroom_is_group=res.data.data.classroom_is_group
-        var classroom_group_price=res.data.data.classroom_group_price
+        var classroom_is_group=res.data.data.classroom.classroom_is_group
+        var classroom_group_price=res.data.data.classroom.classroom_group_price
         var isGroup=false
         if(classroom_is_group==1 && classroom_group_price >0){
           isGroup=true
         }
-        var article = res.data.data.classroom_remark.replace(/<p([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<p').replace(/<p([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<p').replace(/<p>/ig, '<p class="p_class">').replace(/<img([\s\w"-=\/\.:;]+)((?:(height="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(width="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(style="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(alt="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)/ig, '<img$1 class="pho"').replace(/<ul>/ig, '<ul class="ul_class">').replace(/<li>/ig, '<li class="li_class">').replace(/<span([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<span').replace(/<span([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<span').replace(/<span>/ig, '<span class="span_class">')
         that.setData({
-          classDetail:res.data.data,
-          isGroup:isGroup,
-          article: article
+          videoDetail:res.data.data,
+          isGroup:isGroup
         })
       }
     })
@@ -70,10 +85,11 @@ Page({
               success(res) {
                 console.log("成功")
                 console.log(res)
+                var is_join = "videoDetail.is_join"
                 if (res.errMsg == "requestPayment:ok") {
-                  // that.setData({
-                  //   is_join:1
-                  // })
+                  that.setData({
+                    [is_join]:1
+                  })
                   app.globalData.mineCurrentData = 0
                   wx.switchTab({
                     url: "/pages/mine/mine"
@@ -104,8 +120,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    this.getClassDetail(options.id)
+    this.getVideoDetail(options.id)
+    this.setData({
+      id:options.id
+    })
   },
 
   /**
@@ -119,7 +137,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getVideoDetail(this.data.id)
+    this.checkLogin()
   },
 
   /**
