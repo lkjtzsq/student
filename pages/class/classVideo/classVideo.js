@@ -31,11 +31,15 @@ Page({
   //获取视频详情
   getVideoDetail:function(id){
     var that = this
+    var token = wx.getStorageSync("token")
     wx.request({
       url: app.globalData.studentBase +'/api/classroom/detail/video',
       method:"POST",
       data:{
         id:id
+      },
+      header:{
+        Authorization:token
       },
       success:function(res){
         console.log(res)

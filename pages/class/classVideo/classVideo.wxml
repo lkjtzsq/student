@@ -1,19 +1,19 @@
 <view class="container">
 	<view class="content-container">
 		<view class="video-box">
-			<video class="video" title="{{videoDetail.title}}" enable-play-gesture="true" show-screen-lock-button="true" src="{{videoDetail.path}}"></video>
+			<video class="video" title="{{videoDetail.title}}" enable-play-gesture="true" show-screen-lock-button="true" src="{{videoDetail.path}}" poster="{{videoDetail.cover}}"></video>
 		</view>
 		<text class="title">{{videoDetail.title}}</text>
 		<text class="content">{{videoDetail.description}}</text>
 	</view>
-	<view wx:if="{{!classDetail.is_join}}">
-		<view class="join-panel" wx:if="{{classDetail.is_free && classDetail.is_free=='charge'}}">
+	<view wx:if="{{!videoDetail.is_join}}">
+		<view class="join-panel" wx:if="{{videoDetail.is_free && videoDetail.is_free=='charge'}}">
 			<text class="join-text" wx:if="{{isGroup}}">新学员优惠价：</text>
 			<text class="join-text" wx:if="{{!isGroup}}">价格：</text>
-			<text class="join-price">¥{{classDetail.classroom_price}}</text>
+			<text class="join-price">¥{{videoDetail.classroom_price}}</text>
 			<view class="join-btn" bindtap="pay">我要报名</view>
 		</view>
-		<view class="join-panel" wx:if="{{classDetail.is_free && classDetail.is_free!=='charge'}}">
+		<view class="join-panel" wx:if="{{videoDetail.is_free && videoDetail.is_free!=='charge'}}">
 			<view class="free-btn">免费报名</view>
 		</view>
 	</view>

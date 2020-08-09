@@ -14,9 +14,11 @@ Page({
   * 跳转至视频播放页面
   */
   toClassVideo(e) {
+    console.log(e)
    var is_join=this.data.classDetail.is_join
    var id = e.currentTarget.dataset.id
-   if(is_join){
+   var index = e.currentTarget.dataset.index
+   if(index < this.data.classDetail.classroom_is_video || is_join){
     wx.navigateTo({
       url: '/pages/class/classVideo/classVideo?id='+id,
     })
