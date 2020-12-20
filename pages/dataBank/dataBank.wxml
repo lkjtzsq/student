@@ -5,10 +5,10 @@
         <view class="current-line">绘本</view>
       </view>
       <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>
-        <view class="current-line">歌曲</view>
+        <view class="current-line">资料</view>
       </view>
       <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>
-        <view class="current-line">儿歌</view>
+        <view class="current-line">习题</view>
       </view>
     </view>
   </view>
