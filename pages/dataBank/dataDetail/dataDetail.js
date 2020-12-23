@@ -29,46 +29,49 @@ Page({
       success: function(res) {
         console.log(res)
         if(res.data.meterial_source){
-          wx.showToast({
-            title: '素材下载中...',
-            icon: 'loading',
-            duration: 160000
-          })
           var material_type = res.data.material_type
-          wx.downloadFile({
-            // 示例 url，并非真实存在
-            url: res.data.meterial_source,
-            success: function(res) {
-              console.log('下载成功')
-              const filePath = res.tempFilePath
-              console.log(filePath)
-              if (material_type == "image") {
-                wx.previewImage({
-                  urls: [filePath]
-                })
-              } else if (material_type == "media") {
-                that.setData({
-                  videoSrc: filePath
-                })
-              } else {
-                wx.openDocument({
-                  filePath: filePath,
-                  success: function(res) {
-                    console.log('打开文档成功')
-                  },
-                  fail: function(err) {
-                    console.log(err)
-                    console.log('打开文档失败')
-                  }
-                })
+          const filePath = res.data.meterial_source
+          if(material_type=='media'){
+            that.setData({
+              videoSrc: filePath
+            })
+          }else{
+            wx.showToast({
+              title: '素材下载中...',
+              icon: 'loading',
+              duration: 160000
+            })
+            wx.downloadFile({
+              // 示例 url，并非真实存在
+              url: res.data.meterial_source,
+              success: function(res) {
+                const filePath = res.tempFilePath
+                console.log(material_type)
+               if(material_type == "image") {
+                  wx.previewImage({
+                    urls: [filePath]
+                  })
+                }else {
+                  wx.openDocument({
+                    filePath: filePath,
+                    success: function(res) {
+                      console.log('打开文档成功')
+                    },
+                    fail: function(err) {
+                      console.log(err)
+                      console.log('打开文档失败')
+                    }
+                  })
+                }
+                wx.hideToast()
+              },
+              fail: function(err) {
+                console.log('下载失败')
+                console.log(err)
               }
-              wx.hideToast()
-            },
-            fail: function(err) {
-              console.log('下载失败')
-              console.log(err)
-            }
-          })
+            })
+          }
+         
         }else{
             wx.showModal({
               title: '提示',
