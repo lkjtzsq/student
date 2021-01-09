@@ -28,6 +28,12 @@ Page({
       },
       success: function(res) {
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         if(res.data.meterial_source){
           var material_type = res.data.material_type
           const filePath = res.data.meterial_source
@@ -102,6 +108,12 @@ Page({
         material_id: id
       },
       success: function(res) {
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         console.log(res)
         that.setData({
           detail: res.data.data

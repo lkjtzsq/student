@@ -17,7 +17,7 @@
 
             </view>
             <view class="ubtns">
-              <image src="https://xuexi.wurui.在线/wxxcx/images/icon/message.png" style="width:34rpx;height:34rpx;" bindtap="createComment" data-index="{{index}}" data-id="{{item.id}}"></image>
+              <image src="https://caishang.5rkk.com/wxxcx/wxxcx/images/icon/message.png" style="width:34rpx;height:34rpx;" bindtap="createComment" data-index="{{index}}" data-id="{{item.id}}"></image>
               <view class="share">
                 <button open-type="share" class="share-btn"></button>
               </view>

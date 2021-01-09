@@ -43,6 +43,12 @@ Page({
       },
       success:function(res){
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         var classroom_is_group=res.data.data.classroom.classroom_is_group
         var classroom_group_price=res.data.data.classroom.classroom_group_price
         var isGroup=false
@@ -78,6 +84,12 @@ Page({
         },
         success: function (res) {
           console.log(res)
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           if (res.data.nonceStr) {
             wx.requestPayment({
               //    "appId": "wx54fc31829de59a65",
@@ -87,6 +99,12 @@ Page({
               paySign: res.data.paySign,
               timeStamp: res.data.timestamp,
               success(res) {
+                if(res.data.status_code==401){
+                  wx.navigateTo({
+                    url: '/pages/login/login'
+                  })
+                  return
+                }
                 console.log("成功")
                 console.log(res)
                 var is_join = "videoDetail.is_join"

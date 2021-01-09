@@ -10,12 +10,12 @@
         <view class="date">{{birth}}</view>
       </view>
       <view class="schedule" bindtap="goSchedule">
-        <image class="schedule-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/schedule.png"></image>
+        <image class="schedule-icon" src="https://caishang.5rkk.com/wxxcx/images/icon/schedule.png"></image>
         <text class="schedule-text">课表</text>
       </view>
     </view>
     <view class="integral">
-      <image class="integral-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/integral.png"></image>
+      <image class="integral-icon" src="https://caishang.5rkk.com/wxxcx/images/icon/integral.png"></image>
       <text class="integral-text">我的积分：</text>
       <text class="integral-num">{{userScore}}</text>
     </view>

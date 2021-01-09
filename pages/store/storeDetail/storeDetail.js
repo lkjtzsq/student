@@ -21,6 +21,12 @@ Page({
     if (token) {
       wx.getSetting({
         success(res) {
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           console.log("vres.authSetting['scope.address']：", res.authSetting['scope.address'])
           if (res.authSetting['scope.address']) {
             console.log("获取地址授权成功")
@@ -49,6 +55,12 @@ Page({
                   },
                   success: function (res) {
                     console.log(res)
+                    if(res.data.status_code==401){
+                      wx.navigateTo({
+                        url: '/pages/login/login'
+                      })
+                      return
+                    }
                     if (res.data.nonceStr) {
                       wx.requestPayment({
                         //    "appId": "wx54fc31829de59a65",
@@ -122,6 +134,12 @@ Page({
                     },
                     success: function (res) {
                       console.log(res)
+                      if(res.data.status_code==401){
+                        wx.navigateTo({
+                          url: '/pages/login/login'
+                        })
+                        return
+                      }
                       if (res.data.nonceStr) {
                         wx.requestPayment({
                           //    "appId": "wx54fc31829de59a65",
@@ -186,6 +204,12 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         var good_is_group=res.data.data.good_is_group
         var good_group_price=res.data.data.good_group_price
         var isGroup=false

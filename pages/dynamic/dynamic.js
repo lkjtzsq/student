@@ -84,6 +84,12 @@ Page({
         },
         success:function(res){
           console.log(res)
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           that.data.dynamicList[index].comments.unshift({
             nickname: nickname,
             comment: that.data.commentValue
@@ -122,6 +128,12 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.data.dynamicList = that.data.dynamicList.concat(res.data.data)
         that.setData({
           dynamicList: that.data.dynamicList

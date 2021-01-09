@@ -39,6 +39,12 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.data.pictureList = that.data.pictureList.concat(res.data.data)
         that.setData({
           pictureList: that.data.pictureList
@@ -64,6 +70,12 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.data.musicList = that.data.musicList.concat(res.data.data)
         that.setData({
           musicList: that.data.musicList
@@ -85,6 +97,12 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.data.nurseryList = that.data.nurseryList.concat(res.data.data)
         that.setData({
           nurseryList: that.data.nurseryList

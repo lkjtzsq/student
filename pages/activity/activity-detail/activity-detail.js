@@ -23,6 +23,12 @@ Page({
           act_id: id
         },
         success: function(res) {
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           console.log(res)
           if (res.data.success) {
             that.setData({
@@ -77,6 +83,12 @@ Page({
               act_id: id
             },
             success: function(res) {
+              if(res.data.status_code==401){
+                wx.navigateTo({
+                  url: '/pages/login/login'
+                })
+                return
+              }
               console.log(res)
               if (res.data.success) {
                 that.setData({
@@ -112,6 +124,12 @@ Page({
         act_id: id
       },
       success: function(res) {
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         console.log(res)
         var act_is_group=res.data.data.act_is_group
         var act_group_price=res.data.data.act_group_price
@@ -146,6 +164,12 @@ Page({
           act_id: id
         },
         success: function(res) {
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           console.log(res)
           that.setData({
             is_join: res.data.data.is_join
@@ -175,6 +199,12 @@ Page({
           mode:mode
         },
         success: function(res) {
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           console.log(res)
           if (res.data.nonceStr) {
             wx.requestPayment({
@@ -187,6 +217,12 @@ Page({
               success(res) {
                 console.log("成功")
                 console.log(res)
+                if(res.data.status_code==401){
+                  wx.navigateTo({
+                    url: '/pages/login/login'
+                  })
+                  return
+                }
                 if (res.errMsg == "requestPayment:ok"){
                   // that.setData({
                   //   is_join:1

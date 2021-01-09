@@ -27,9 +27,13 @@ Page({
       wx.navigateTo({
         url: '/pages/outside/outside?outsideUrl=' + outsideUrl
       })
-    }else if(type=5){
+    }else if(type==5){
       wx.navigateTo({
         url: '/pages/class/classDetail/classDetail?id=' + id
+      })
+    }else if(type==6){
+      wx.navigateTo({
+        url: '/pages/dataBank/dataDetail/dataDetail?id=' + id
       })
     }
   },
@@ -52,6 +56,12 @@ Page({
           Authorization: token
         },
         success: function (res) {
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           var answer_type = res.data.data.answer_type
           var is_answer = res.data.data.is_answer
           if (answer_type == "week") {
@@ -84,7 +94,12 @@ Page({
         page: 1
       },
       success: function (res) {
-
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.setData({
           swiperLists: res.data.data
         })
@@ -109,6 +124,12 @@ Page({
         page: page
       },
       success: function (res) {
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.data.hotLists = that.data.hotLists.concat(res.data.data)
         that.setData({
           hotLists: that.data.hotLists

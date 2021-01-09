@@ -77,7 +77,7 @@ Page({
       success: function (result) {
         var nickname = result.data.data.nickname
         var user_cover = result.data.data.user_cover
-        var avatar_path = result.data.data.avatar_path ? result.data.data.avatar_path : "https://xuexi.wurui.xn--3ds443g/wxxcx/images/icon/user.png";
+        var avatar_path = result.data.data.avatar_path ? result.data.data.avatar_path : "https://caishang.5rkk.com/wxxcx/images/icon/user.png";
         var classroom_name = result.data.data.classroom_name
         var birth = result.data.data.birth ? result.data.data.birth:'保密'
         wx.setStorageSync("nickname", nickname)

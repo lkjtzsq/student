@@ -41,6 +41,12 @@ Page({
       },
       success: function(res) {
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.data.productList = that.data.productList.concat(res.data.data)
         that.setData({
           productList: that.data.productList
@@ -68,6 +74,12 @@ Page({
       },
       success: function(res) {
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.data.spellList = that.data.spellList.concat(res.data.data)
         that.setData({
           spellList: that.data.spellList
@@ -91,6 +103,12 @@ Page({
       },
       success: function(res) {
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.data.integralList = that.data.integralList.concat(res.data.data)
         that.setData({
           integralList: that.data.integralList

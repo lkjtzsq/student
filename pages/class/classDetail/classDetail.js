@@ -7,9 +7,26 @@ Page({
   data: {
     classDetail:{},
     article:null,
-    id:null
+    id:null,
+    remark:""
   },
-  
+  //显示prompt
+  showPrompt:function(){
+    this.prompt.showPrompt();
+  },
+  //将输入的value保存起来
+  getInput: function (e) {
+    this.setData({
+      remark: e.detail.value
+    })
+  },
+  confirm: function () {
+    this.prompt.hidePrompt();
+    this.pay();
+  },
+  cancel: function () {
+    this.prompt.hidePrompt();
+  },
   /**
   * 跳转至视频播放页面
   */
@@ -52,6 +69,12 @@ Page({
       },
       success:function(res){
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         var classroom_is_group=res.data.data.classroom_is_group
         var classroom_group_price=res.data.data.classroom_group_price
         var isGroup=false
@@ -86,10 +109,17 @@ Page({
         },
         data: {
           classroom_id: that.data.classDetail.id,
+          remark:that.data.remark,
           mode:mode
         },
         success: function (res) {
           console.log(res)
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           if (res.data.nonceStr) {
             wx.requestPayment({
               // "appId": "wx54fc31829de59a65",
@@ -99,6 +129,12 @@ Page({
               paySign: res.data.paySign,
               timeStamp: res.data.timestamp,
               success(res) {
+                if(res.data.status_code==401){
+                  wx.navigateTo({
+                    url: '/pages/login/login'
+                  })
+                  return
+                }
                 console.log("成功")
                 console.log(res)
                 var is_join = "classDetail.is_join"
@@ -118,11 +154,11 @@ Page({
               }
             })
           }else{
-            wx.showModal({
-              title: '提示',
-              showCancel:false,
-              content: res.data.message
-            })
+              wx.showModal({
+                title: '提示',
+                showCancel:false,
+                content: res.data.message
+              })
           }
         },
         fail: function (err) {
@@ -150,7 +186,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.prompt = this.selectComponent("#prompt");
   },
 
   /**

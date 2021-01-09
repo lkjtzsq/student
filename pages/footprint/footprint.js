@@ -10,7 +10,7 @@ Page({
     commentPanelShow: false,
     index: 0,
     id: 0,
-    user_cover: wx.getStorageSync("user_cover") ? wx.getStorageSync("user_cover") : 'https://xuexi.wurui.在线/wxxcx/images/icon/footprint.png',
+    user_cover: wx.getStorageSync("user_cover") ? wx.getStorageSync("user_cover") : 'https://caishang.5rkk.com/wxxcx/images/icon/footprint.png',
     currentImage: 0,
     imgUrls: [],
     show: false,
@@ -97,6 +97,12 @@ Page({
         },
         success: function (res) {
           console.log(res)
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           that.data.footprintList[index].comments.unshift({
             nickname: nickname,
             comment: that.data.commentValue
@@ -135,6 +141,12 @@ Page({
         page:page
       },
       success: function(res) {
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.data.footprintList = that.data.footprintList.concat(res.data.data)
         that.setData({
           footprintList: that.data.footprintList

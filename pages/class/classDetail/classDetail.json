@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "课程介绍"
+  "navigationBarTitleText": "课程介绍",
+  "usingComponents": {
+    "prompt": "./../../../components/prompt/prompt" 
+   }
 }

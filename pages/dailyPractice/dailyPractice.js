@@ -285,6 +285,12 @@ Page({
           Authorization: token
         },
         success: function(res) {
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           console.log(res)
           if (res.data.status_code == 201) {
             that.setData({
@@ -339,6 +345,12 @@ Page({
           answer_mp4: answer_mp4
         },
         success: function(res) {
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           console.log(res)
           if (res.data.success) {
             wx.showToast({

@@ -1,7 +1,7 @@
 <view>
   <view class="uitem" wx:for="{{dynamicList}}" wx:key="c">
     <view class="uintro">
-      <image class="upic" src="{{item.user.avatar_path?item.user.avatar_path:'https://xuexi.wurui.xn--3ds443g/wxxcx/images/icon/user.png'}}"></image>
+      <image class="upic" src="{{item.user.avatar_path?item.user.avatar_path:'https://caishang.5rkk.com/wxxcx/images/icon/user.png'}}"></image>
       <view class="utext">
         <text class="uname">{{item.user.nickname}}</text>
         <text class="publish-time">{{item.dynamic_publish_at}}</text>

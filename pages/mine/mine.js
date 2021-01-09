@@ -32,6 +32,12 @@ Page({
       },
       success:function(res){
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.setData({
           userScore:res.data.data.user_score
         })
@@ -51,6 +57,12 @@ Page({
         },
         success: function (res) {
           console.log(res)
+          if(res.data.status_code==401){
+            wx.navigateTo({
+              url: '/pages/login/login'
+            })
+            return
+          }
           that.setData({
             classList:res.data.data
           })
@@ -69,6 +81,12 @@ Page({
         Authorization: token
       },
       success: function (res) {
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         console.log(res)
         that.setData({
           activityList: res.data.data
@@ -88,6 +106,12 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         that.setData({
           goodList: res.data.data
         })

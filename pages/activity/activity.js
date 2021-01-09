@@ -39,6 +39,12 @@ Page({
         page: page
       },
       success: function(res) {
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         console.log(res.data.data)
         that.data.activityLists=that.data.activityLists.concat(res.data.data)
         that.setData({

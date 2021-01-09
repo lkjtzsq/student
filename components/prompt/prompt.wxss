@@ -1,0 +1,57 @@
+/* components/vas-prompt/vas-prompt.wxss */
+.prompt-box {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  background: rgba(0, 0, 0, .5);
+}
+
+.prompt-content {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 80%;
+  max-width: 600rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 10rpx;
+  box-sizing: bordre-box;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background: #fff;
+}
+
+.prompt-title {
+  padding: 20rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #ccc;
+  letter-spacing: 4rpx;
+}
+
+.prompt-input {
+  margin: 40rpx;
+  padding: 0rpx 30rpx;
+  height: 80rpx;
+  border: 1px solid #ccc;
+  border-radius: 8rpx;
+}
+
+.prompt-btn-group {
+  padding:0 40rpx 40rpx;
+  overflow: hidden;
+}
+
+.btn-item {
+  width: 46%;
+  margin:0;
+  font-size: 30rpx;
+}
+.btn-item-cancel{
+  float:left;
+}
+.btn-item-confirm{
+  float:right;
+}

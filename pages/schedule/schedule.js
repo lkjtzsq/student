@@ -14,6 +14,12 @@ Page({
       url: app.globalData.studentBase +'/api/timetable',
       method:"POST",
       success:function(res){
+        if(res.data.status_code==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
        that.setData({
          imgUrl: res.data.data.timetable_cover
        })
