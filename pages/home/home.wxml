@@ -7,7 +7,7 @@
   </swiper>
   <view class="punch-box">
     <view class="daily-practice">
-      <image class="dp-img" src="https://xuexi.5rkk.com/wxxcx/images/icon/calendar.png"></image>
+      <image class="dp-img" src="https://caishang.5rkk.com/wxxcx/images/icon/calendar.png"></image>
       <view class="dp-text">
         <text class="dp-title">{{answer_type}}</text>
         <text class="dp-intro">坚持才会看到惊喜哦~</text>
@@ -19,26 +19,26 @@
 <!-- 4组按钮区域 -->
 <view class="btn-group">
   <view class="btn-item" bindtap="enterAboutUs" data-enter="footprint">
-    <image class="btn-img" src="https://xuexi.5rkk.com/wxxcx/images/icon/aboutus.png"></image>
+    <image class="btn-img" src="https://caishang.5rkk.com/wxxcx/images/icon/aboutus.png"></image>
     <text class="btn-text">关于我们</text>
   </view>
    <view class="btn-item" bindtap="enterActivity">
-    <image class="btn-img" src="https://xuexi.5rkk.com/wxxcx/images/icon/activity.png"></image>
+    <image class="btn-img" src="https://caishang.5rkk.com/wxxcx/images/icon/activity.png"></image>
     <text class="btn-text">热门活动</text>
   </view>
    <view class="btn-item">
-    <image class="btn-img" bindtap="enterClass" src="https://xuexi.5rkk.com/wxxcx/images/icon/class.png"></image>
+    <image class="btn-img" bindtap="enterClass" src="https://caishang.5rkk.com/wxxcx/images/icon/class.png"></image>
     <text class="btn-text">精选课程</text>
   </view>
    <view class="btn-item">
-    <image class="btn-img" bindtap="enterDataBank" src="https://xuexi.5rkk.com/wxxcx/images/icon/data.png"></image>
+    <image class="btn-img" bindtap="enterDataBank" src="https://caishang.5rkk.com/wxxcx/images/icon/data.png"></image>
     <text class="btn-text">资料库</text>
   </view>
 </view>
 <!-- 热门推荐 -->
 <view class="hot">
   <view class="hot-title">
-    <image src="https://xuexi.5rkk.com/wxxcx/images/icon/red-line.png"></image>
+    <image src="https://caishang.5rkk.com/wxxcx/images/icon/red-line.png"></image>
     <text class="hot-title-text">热门推荐</text>
   </view>
   <view class="hot-box" wx:for="{{hotLists}}" wx:key="b" bindtap="swiperLink" data-type="{{item.key_type}}" data-id="{{item.key_id}}" data-outside="{{item.rotation_url}}">
@@ -50,4 +50,4 @@
     </view>
   </view>
 </view>
-<image class="suspend-panel" src="https://xuexi.5rkk.com/wxxcx/images/icon/suspension.png"></image>
+<image class="suspend-panel" src="https://caishang.5rkk.com/wxxcx/images/icon/suspension.png"></image>

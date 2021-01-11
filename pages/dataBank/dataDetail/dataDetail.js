@@ -27,7 +27,6 @@ Page({
         material_id: that.data.id
       },
       success: function(res) {
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'
@@ -52,7 +51,6 @@ Page({
               url: res.data.meterial_source,
               success: function(res) {
                 const filePath = res.tempFilePath
-                console.log(material_type)
                if(material_type == "image") {
                   wx.previewImage({
                     urls: [filePath]
@@ -61,19 +59,14 @@ Page({
                   wx.openDocument({
                     filePath: filePath,
                     success: function(res) {
-                      console.log('打开文档成功')
                     },
                     fail: function(err) {
-                      console.log(err)
-                      console.log('打开文档失败')
                     }
                   })
                 }
                 wx.hideToast()
               },
               fail: function(err) {
-                console.log('下载失败')
-                console.log(err)
               }
             })
           }
@@ -114,7 +107,6 @@ Page({
           })
           return
         }
-        console.log(res)
         that.setData({
           detail: res.data.data
         })

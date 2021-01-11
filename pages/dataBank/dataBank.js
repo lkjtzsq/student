@@ -16,7 +16,6 @@ Page({
   },
   //资料库详情跳转
   toDataDetail: function (e) {
-    console.log(e)
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/dataBank/dataDetail/dataDetail?id=' + id
@@ -38,7 +37,6 @@ Page({
         material_type:0
       },
       success: function (res) {
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'
@@ -69,7 +67,6 @@ Page({
         material_type:1
       },
       success: function (res) {
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'
@@ -96,7 +93,6 @@ Page({
         material_type:2
       },
       success: function (res) {
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'

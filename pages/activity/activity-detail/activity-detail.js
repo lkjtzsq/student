@@ -29,7 +29,6 @@ Page({
             })
             return
           }
-          console.log(res)
           if (res.data.success) {
             that.setData({
               is_join: 1
@@ -48,9 +47,9 @@ Page({
               showCancel:false,
               success(res) {
                 if (res.confirm) {
-                  //console.log('用户点击确定')
+                 
                 } else if (res.cancel) {
-                  //console.log('用户点击取消')
+                  
                 }
               }
             })
@@ -89,7 +88,6 @@ Page({
                 })
                 return
               }
-              console.log(res)
               if (res.data.success) {
                 that.setData({
                   is_join: 0
@@ -130,7 +128,6 @@ Page({
           })
           return
         }
-        console.log(res)
         var act_is_group=res.data.data.act_is_group
         var act_group_price=res.data.data.act_group_price
         var isGroup=false
@@ -170,7 +167,6 @@ Page({
             })
             return
           }
-          console.log(res)
           that.setData({
             is_join: res.data.data.is_join
           })
@@ -205,7 +201,6 @@ Page({
             })
             return
           }
-          console.log(res)
           if (res.data.nonceStr) {
             wx.requestPayment({
               //    "appId": "wx54fc31829de59a65",
@@ -215,8 +210,6 @@ Page({
               paySign: res.data.paySign,
               timeStamp: res.data.timestamp,
               success(res) {
-                console.log("成功")
-                console.log(res)
                 if(res.data.status_code==401){
                   wx.navigateTo({
                     url: '/pages/login/login'
@@ -236,8 +229,6 @@ Page({
                 }
               },
               fail(res) {
-                console.log("失败")
-                console.log(res)
               }
             })
           }else{
@@ -249,7 +240,6 @@ Page({
           }
         },
         fail: function(err) {
-          console.log(err)
         }
       })
     }

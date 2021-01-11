@@ -10,7 +10,6 @@ Page({
   },
   //轮播图跳转
   swiperLink: function (e) {
-    console.log(e)
     var id = e.currentTarget.dataset.id
     var type = e.currentTarget.dataset.type
     if (type == 2) {
@@ -45,7 +44,7 @@ Page({
           })
           return
         }
-        console.log(res.data.data)
+  
         that.data.activityLists=that.data.activityLists.concat(res.data.data)
         that.setData({
           activityLists: that.data.activityLists
@@ -53,8 +52,6 @@ Page({
         wx.hideToast()
       },
       fail: function(res) {
-        console.log("热门活动列表获取失败")
-        console.log(res)
       }
     })
   },

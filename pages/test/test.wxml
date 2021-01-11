@@ -2,7 +2,5 @@
 <canvas canvas-id="myCanvas" class="canvas" style="width:{{width}}px;height:{{height}}px;margin-left:{{marginLeft}};margin-top:{{marginTop}};"></canvas>
 <text class="submit" bindtap="submit">发布</text>
 <image wx:if="{{show}}" class="canvas-delete" src="/images/icon/delete.png" bindtap="canvasDelete"></image>
-
 <button open-type="share" class='icon-weixin' wx:if="{{show}}">分享给朋友</button>
-
 <button class='icon-save' wx:if="{{show}}" bindtap="saveImage">保存到相册</button>

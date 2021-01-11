@@ -2,7 +2,7 @@
   <view class="fixed-top">
     <view class="search-container">
       <view class="search">
-        <image class="search-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/search.png"></image>
+        <image class="search-icon" src="https://caishang.5rkk.com/wxxcx/images/icon/search.png"></image>
         <input class="search-input" type="text" confirm-type="search" placeholder="搜索你想要的"></input>
       </view>
     </view>

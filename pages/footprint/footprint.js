@@ -17,15 +17,11 @@ Page({
     page:1
   },
   change(e) {
-    console.log('current index has changed', e.detail)
   },
   delete(e) {
-    console.log('delete', e.detail)
   },
   hide() {
-    console.log('component hide')
     setTimeout(() => {
-      console.log('component show')
       this.setData({
         show: true
       })
@@ -34,9 +30,7 @@ Page({
   //预览图片
   previewImg: function(event) {
     var current = event.currentTarget.dataset.current
-    console.log(current)
     var list = event.currentTarget.dataset.list
-    console.log(list)
     wx.previewImage({
       current: current, // 当前显示图片的http链接
       urls: list // 需要预览的图片http链接列表
@@ -96,7 +90,6 @@ Page({
           key_id: id
         },
         success: function (res) {
-          console.log(res)
           if(res.data.status_code==401){
             wx.navigateTo({
               url: '/pages/login/login'
@@ -172,7 +165,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log("onload")
     this.checkToken()
     //获取当前年份
     var year = new Date().getFullYear()

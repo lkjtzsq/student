@@ -8,8 +8,8 @@
   <view class="line"></view>
   <view class="record-show" wx:if="{{audioSrc}}">
     <view class="record-show-left">
-      <image wx:if="{{recordPlay}}" class="record-show-btn" src="https://xuexi.5rkk.com/wxxcx/images/icon/audio-play.png" bindtap="play"></image>
-      <image wx:if="{{!recordPlay}}" class="record-show-btn" src="https://xuexi.5rkk.com/wxxcx/images/icon/audio-pause.png" bindtap="recordPause"></image>
+      <image wx:if="{{recordPlay}}" class="record-show-btn" src="https://caishang.5rkk.com/wxxcx/images/icon/audio-play.png" bindtap="play"></image>
+      <image wx:if="{{!recordPlay}}" class="record-show-btn" src="https://caishang.5rkk.com/wxxcx/images/icon/audio-pause.png" bindtap="recordPause"></image>
       <text class="currentTime">{{currentTime}}</text>
     </view>
     <view class="record-show-right">
@@ -20,30 +20,30 @@
   <view class="btn-group" wx:if="{{show}}">
     <view class="img-show-container" wx:if="{{imgUrl}}">
       <image class="image-show" src="{{imgUrl}}" mode="aspectFill" bindtap="viewImg"></image>
-      <image class="delete" src="https://xuexi.5rkk.com/wxxcx/images/icon/delete.png" bindtap="deleteImg"></image>
+      <image class="delete" src="https://caishang.5rkk.com/wxxcx/images/icon/delete.png" bindtap="deleteImg"></image>
     </view>
-    <image wx:if="{{!imgUrl}}" src="https://xuexi.5rkk.com/wxxcx/images/icon/camera.png" bindtap="choosePic"></image>
-    <image wx:if="{{audioStartStatus}}" src="https://xuexi.5rkk.com/wxxcx/images/icon/audio.png" bindtap="start"></image>
-    <image wx:if="{{(!audioStatus) && (!audioStartStatus)}}" src="https://xuexi.5rkk.com/wxxcx/images/icon/audio.png" bindtap="resume"></image>
-    <image wx:if="{{audioStatus && (!audioStartStatus)}}" src="https://xuexi.5rkk.com/wxxcx/images/icon/audio.png" bindtap="pause"></image>
+    <image wx:if="{{!imgUrl}}" src="https://caishang.5rkk.com/wxxcx/images/icon/camera.png" bindtap="choosePic"></image>
+    <image wx:if="{{audioStartStatus}}" src="https://caishang.5rkk.com/wxxcx/images/icon/audio.png" bindtap="start"></image>
+    <image wx:if="{{(!audioStatus) && (!audioStartStatus)}}" src="https://caishang.5rkk.com/wxxcx/images/icon/audio.png" bindtap="resume"></image>
+    <image wx:if="{{audioStatus && (!audioStartStatus)}}" src="https://caishang.5rkk.com/wxxcx/images/icon/audio.png" bindtap="pause"></image>
     <view class="img-show-container" wx:if="{{videoSrc}}">
       <video class="video-show" src="{{videoSrc}}"></video>
-      <image class="delete" src="https://xuexi.5rkk.com/wxxcx/images/icon/delete.png" bindtap="deleteVideo"></image>
+      <image class="delete" src="https://caishang.5rkk.com/wxxcx/images/icon/delete.png" bindtap="deleteVideo"></image>
     </view>
 
-    <image wx:if="{{!videoSrc}}" src="https://xuexi.5rkk.com/wxxcx/images/icon/video.png" bindtap="chooseVideo"></image>
+    <image wx:if="{{!videoSrc}}" src="https://caishang.5rkk.com/wxxcx/images/icon/video.png" bindtap="chooseVideo"></image>
   </view>
   <view class="record-panel" wx:if="{{recordPanel}}">
-    <image class="record-delete" src="https://xuexi.5rkk.com/wxxcx/images/icon/delete.png" bindtap="deleteAudio"></image>
+    <image class="record-delete" src="https://caishang.5rkk.com/wxxcx/images/icon/delete.png" bindtap="deleteAudio"></image>
     <text class="record-seconds">{{recordSecondsToHs}}</text>
-    <image wx:if="{{recordStatus}}" class="record-start" src="https://xuexi.5rkk.com/wxxcx/images/icon/audio-play.png" bindtap="resume"></image>
-    <image wx:if="{{!recordStatus}}" class="record-pause" src="https://xuexi.5rkk.com/wxxcx/images/icon/audio-pause.png" bindtap="pause"></image>
+    <image wx:if="{{recordStatus}}" class="record-start" src="https://caishang.5rkk.com/wxxcx/images/icon/audio-play.png" bindtap="resume"></image>
+    <image wx:if="{{!recordStatus}}" class="record-pause" src="https://caishang.5rkk.com/wxxcx/images/icon/audio-pause.png" bindtap="pause"></image>
     <text class="record-stop" bindtap="finish">完成</text>
   </view>
   <view class="practice-record">
-    <image class="practice-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/calendar2.png"></image>
+    <image class="practice-icon" src="https://caishang.5rkk.com/wxxcx/images/icon/calendar2.png"></image>
     <text class="practice-record-text">打卡记录</text>
-    <image class="practice-record-arrow" src="https://xuexi.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
+    <image class="practice-record-arrow" src="https://caishang.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
   </view>
 </view>
 <text class="submit-btn" bindtap="submit" wx:if="{{show}}">发布</text>

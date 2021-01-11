@@ -10,12 +10,13 @@ Page({
   onLoad: function() {
 
   },
+  
   //初始化设备信息、画布信息
   productCanvas: function() {
     var that = this
     wx.getSystemInfo({
       success: function(res) {
-        //console.log(res)
+    
         var scale = res.windowWidth / 375
         var width = scale * 350
         var height = scale * 500
@@ -38,7 +39,7 @@ Page({
       src: that.data.src,
       complete: (res) => {
         var imgPath = res.path
-        console.log(res.path)
+      
         //绘制图片
         ctx.drawImage(imgPath, 10 * scale, 10 * scale, 330 * scale, 400 * scale)
         //绘制二维码
@@ -106,7 +107,7 @@ Page({
   onShareAppMessage: function(res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
+  
     }
     // return {
     //   title: '自定义转发标题',

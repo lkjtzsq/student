@@ -194,3 +194,15 @@ rich-text {
   right: 10rpx;
   bottom: 10rpx;
 }
+.poster-btn{
+  width: 100%;
+  height: 84rpx;
+  background: #FF5C59;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 84rpx;
+  border-radius: 4rpx;
+  letter-spacing: 4rpx;
+  margin-bottom: 40rpx;
+}

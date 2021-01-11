@@ -21,26 +21,9 @@ Page({
     if (token) {
       wx.getSetting({
         success(res) {
-          if(res.data.status_code==401){
-            wx.navigateTo({
-              url: '/pages/login/login'
-            })
-            return
-          }
-          console.log("vres.authSetting['scope.address']：", res.authSetting['scope.address'])
           if (res.authSetting['scope.address']) {
-            console.log("获取地址授权成功")
             wx.chooseAddress({
               success(res) {
-                console.log(res)
-                console.log(res.userName)
-                console.log(res.postalCode)
-                console.log(res.provinceName)
-                console.log(res.cityName)
-                console.log(res.countyName)
-                console.log(res.detailInfo)
-                console.log(res.nationalCode)
-                console.log(res.telNumber)
                 wx.request({
                   url: app.globalData.studentBase + '/api/pay/good',
                   method: "POST",
@@ -54,13 +37,6 @@ Page({
                     mode:mode
                   },
                   success: function (res) {
-                    console.log(res)
-                    if(res.data.status_code==401){
-                      wx.navigateTo({
-                        url: '/pages/login/login'
-                      })
-                      return
-                    }
                     if (res.data.nonceStr) {
                       wx.requestPayment({
                         //    "appId": "wx54fc31829de59a65",
@@ -70,8 +46,6 @@ Page({
                         paySign: res.data.paySign,
                         timeStamp: res.data.timestamp,
                         success(res) {
-                          console.log("成功")
-                          console.log(res)
                           if (res.errMsg == "requestPayment:ok") {
                             app.globalData.mineCurrentData = 2
                             wx.switchTab({
@@ -80,8 +54,6 @@ Page({
                           }
                         },
                         fail(res) {
-                          console.log("失败")
-                          console.log(res)
                         }
                       })
                     }else{
@@ -93,7 +65,6 @@ Page({
                     }
                   },
                   fail: function (err) {
-                    console.log(err)
                   }
                 })
               }
@@ -101,25 +72,13 @@ Page({
 
           } else {
             if (res.authSetting['scope.address'] == false) {
-              console.log("获取地址授权失败")
               wx.openSetting({
                 success(res) {
-                  console.log(res.authSetting)
                 }
               })
             } else {
-              console.log("eee")
               wx.chooseAddress({
                 success(res) {
-                  console.log(res)
-                  console.log(res.userName)
-                  console.log(res.postalCode)
-                  console.log(res.provinceName)
-                  console.log(res.cityName)
-                  console.log(res.countyName)
-                  console.log(res.detailInfo)
-                  console.log(res.nationalCode)
-                  console.log(res.telNumber)
                   wx.request({
                     url: app.globalData.studentBase + '/api/pay/good',
                     method: "POST",
@@ -133,13 +92,6 @@ Page({
                       mode:mode
                     },
                     success: function (res) {
-                      console.log(res)
-                      if(res.data.status_code==401){
-                        wx.navigateTo({
-                          url: '/pages/login/login'
-                        })
-                        return
-                      }
                       if (res.data.nonceStr) {
                         wx.requestPayment({
                           //    "appId": "wx54fc31829de59a65",
@@ -149,8 +101,6 @@ Page({
                           paySign: res.data.paySign,
                           timeStamp: res.data.timestamp,
                           success(res) {
-                            console.log("成功")
-                            console.log(res)
                             if (res.errMsg == "requestPayment:ok") {
                               // that.setData({
                               //   is_join:1
@@ -162,14 +112,11 @@ Page({
                             }
                           },
                           fail(res) {
-                            console.log("失败")
-                            console.log(res)
                           }
                         })
                       }
                     },
                     fail: function (err) {
-                      console.log(err)
                     }
                   })
                 }
@@ -203,7 +150,6 @@ Page({
         good_id:id
       },
       success: function (res) {
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'

@@ -12,7 +12,7 @@
       <image class="uimg" mode="aspectFill" wx:for="{{item.image}}" wx:for-item="imageItem" wx:for-index="imageIndex" wx:key="d" src="{{imageItem}}" bindtap="previewImg" data-list="{{item.image}}" data-current="{{imageItem}}"></image>
     </view>
     <view class="ubtns">
-      <image src="https://xuexi.5rkk.com/wxxcx/images/icon/message.png" style="width:34rpx;height:34rpx;" bindtap="createComment" data-index="{{index}}" data-id="{{item.id}}"></image>
+      <image src="https://caishang.5rkk.com/wxxcx/images/icon/message.png" style="width:34rpx;height:34rpx;" bindtap="createComment" data-index="{{index}}" data-id="{{item.id}}"></image>
       <view class="share">
         <button open-type="share" class="share-btn"></button>
       </view>

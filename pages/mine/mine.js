@@ -36,7 +36,6 @@ Page({
         Authorization: token
       },
       success:function(res){
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'
@@ -61,7 +60,6 @@ Page({
           Authorization: token
         },
         success: function (res) {
-          console.log(res)
           if(res.data.status_code==401){
             wx.navigateTo({
               url: '/pages/login/login'
@@ -92,7 +90,6 @@ Page({
           })
           return
         }
-        console.log(res)
         that.setData({
           activityList: res.data.data
         })
@@ -110,7 +107,6 @@ Page({
         Authorization: token
       },
       success: function (res) {
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'
@@ -125,7 +121,6 @@ Page({
   },
   // 课程详情跳转
   toClassDetail: function (e) {
-    console.log(e)
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/class/classDetail/classDetail?id=' + id
@@ -133,7 +128,6 @@ Page({
   },
   // 活动详情跳转
   toActivityDetail:function(e){
-    console.log(e)
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/activity/activity-detail/activity-detail?id=' + id
@@ -141,11 +135,6 @@ Page({
   },
   //商品详情跳转
   toStoreDetail(e){
-    // console.log(e)
-    // var id = e.currentTarget.dataset.id
-    // wx.navigateTo({
-    //   url: '/pages/store/storeDetail/storeDetail?id=' + id
-    // })
   },
   //课表
   goSchedule:function(){
@@ -158,12 +147,8 @@ Page({
     wx.requestSubscribeMessage({
       tmplIds: ['S4SP2aG_Cj4lrsyRnncYYG31p8qugOVUKCMvb4kcFEc'],
       success(res) {
-        console.log('已授权接收订阅消息')
-        console.log(res)
       },
       fail(res) {
-        console.log('订阅失败')
-        console.log(res)
       }
     })
   },

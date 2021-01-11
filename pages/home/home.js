@@ -13,11 +13,9 @@ Page({
   },
   //轮播图跳转
   swiperLink:function(e){
-    console.log(e)
     var id=e.currentTarget.dataset.id
     var type =e.currentTarget.dataset.type
     var outsideUrl = e.currentTarget.dataset.outside
-    console.log(outsideUrl)
     if(type==2){
       wx.navigateTo({
         url: '/pages/activity/activity-detail/activity-detail?id='+id
@@ -105,8 +103,6 @@ Page({
         })
       },
       fail: function (res) {
-        console.log("轮播图获取失败")
-        console.log(res)
       }
     })
   },
@@ -137,7 +133,6 @@ Page({
         wx.hideToast()
       },
       fail: function (res) {
-        console.log(res)
       }
     })
   },
@@ -196,10 +191,8 @@ Page({
       // path: "/pages/dynamic/dynamic",
       // imageUrl:"",
       success: function (res) {
-        console.log(res)
       },
       fail: function (err) {
-        console.log(err)
       }
     }
   }

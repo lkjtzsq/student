@@ -60,7 +60,6 @@ Page({
     var that = this
     clearInterval(that.data.recordPlayInter)
     that.data.recordPlayInter = setInterval(function () {
-      console.log(innerAudioContext.currentTime)
       var currentTime = Math.ceil(innerAudioContext.currentTime) 
       that.data.currentTime = that.s_to_hs(currentTime)
       that.setData({
@@ -86,7 +85,6 @@ Page({
     //开始录音
     RecorderManager.start(options);
     RecorderManager.onStart(() => {
-      console.log('recorder start')
       clearInterval(that.data.setInter)
       that.setInterOn()
       that.setData({
@@ -98,7 +96,6 @@ Page({
       })
     });
     RecorderManager.onPause(function() {
-      console.log("暂停录音")
       clearInterval(that.data.setInter)
       that.setData({
         audioStatus: false,
@@ -106,7 +103,6 @@ Page({
       })
     })
     RecorderManager.onResume(function() {
-      console.log("继续录音")
       that.setInterOn()
       that.setData({
         audioStatus: true,
@@ -116,7 +112,6 @@ Page({
     RecorderManager.onStop((res) => {
       clearInterval(that.data.setInter)
       if(!that.data.audioSrc){
-        console.log("停止录音")
         that.setData({
           audioSrc: res.tempFilePath,
           audioStartStatus: true,
@@ -125,28 +120,22 @@ Page({
           recordSecondsToHs: '00:00',
           currentTime: '00:00'
         })
-        console.log('停止录音', res.tempFilePath)
         this.uploadMedia(res.tempFilePath, "audio")
         innerAudioContext.src = res.tempFilePath
-        console.log("丫丫")
         innerAudioContext.onCanplay(() => {
-          console.log("oncanplay")
           // 必须。可以当做是初始化时长
           innerAudioContext.duration;
           // 必须。不然也获取不到时长
           setTimeout(() => {
-            console.log(innerAudioContext.duration); // 401.475918 
             that.setData({
               holeTime: that.s_to_hs(Math.floor(innerAudioContext.duration))
             })
           }, 50)
         }) 
-        console.log("嘎嘎") 
       }
     })
     //错误回调
     RecorderManager.onError((res) => {
-      console.log(res);
     })
   },
   //开始录音的时候
@@ -154,9 +143,7 @@ Page({
     var that = this
     wx.getSetting({
       success(res) {
-        console.log(res)
         if (!res.authSetting['scope.record']) {
-          console.log(222)
           wx.authorize({
             scope: 'scope.record',
             success() {
@@ -164,7 +151,6 @@ Page({
               that.startRecord()
             },
             fail(res) {
-              console.log(res)
             }
           })
         } else {
@@ -207,7 +193,6 @@ Page({
   },
   //播放声音
   play: function() {
-    console.log(1)
     var that = this
     that.setData({
       recordPlay: false
@@ -217,16 +202,11 @@ Page({
     // innerAudioContext.src = this.data.audioSrc
     innerAudioContext.onPlay(() => {
       that.setRecordPlay()
-      console.log('开始播放')
-
-      console.log(innerAudioContext.duration)
     })
     innerAudioContext.onPause(() => {
-      console.log('暂停播放')
       clearInterval(that.data.recordPlayInter)
     })
     innerAudioContext.onEnded(() => {
-      console.log('播放完毕')
       clearInterval(that.data.recordPlayInter)
       this.setData({
         recordPlay: true,
@@ -234,8 +214,6 @@ Page({
       })
     })
     innerAudioContext.onError((res) => {
-      console.log(res.errMsg)
-      console.log(res.errCode)
     })
   },
   //删除录音
@@ -264,8 +242,6 @@ Page({
       sourceType: ['album', 'camera'],
       camera: 'back',
       success(res) {
-        console.log(res)
-        console.log(res.tempFilePath)
         that.setData({
           videoSrc: res.tempFilePath
         })
@@ -291,7 +267,6 @@ Page({
             })
             return
           }
-          console.log(res)
           if (res.data.status_code == 201) {
             that.setData({
               show: false,
@@ -351,7 +326,6 @@ Page({
             })
             return
           }
-          console.log(res)
           if (res.data.success) {
             wx.showToast({
               title: '打卡成功！'
@@ -365,7 +339,6 @@ Page({
           }
         },
         fail: function(err) {
-          console.log(err)
         }
       })
     }
@@ -409,7 +382,6 @@ Page({
     wx.showActionSheet({
       itemList: ['拍照', '从相册中选择'],
       success(res) {
-        console.log(res.tapIndex)
         let sourceType = 'camera'
         if (res.tapIndex == 0) {
           sourceType = 'camera'
@@ -421,7 +393,6 @@ Page({
           sizeType: ['original', 'compressed'],
           sourceType: [sourceType],
           success: function(res) {
-            console.log(res)
             that.uploadPic(res.tempFilePaths[0])
             that.setData({
               imgUrl: res.tempFilePaths[0]
@@ -452,7 +423,6 @@ Page({
         },
         success(res) {
           var data = JSON.parse(res.data)
-          console.log(data)
           that.setData({
             path: data.data.path
           })
@@ -467,8 +437,6 @@ Page({
   },
   //上传视频&音频
   uploadMedia: function(mediaUrl, type) {
-    console.log("上传就绪")
-    console.log(mediaUrl)
     var token = wx.getStorageSync("token")
     var that = this
     if (type == "video") {
@@ -478,7 +446,6 @@ Page({
         duration: 160000
       })
     }
-    console.log("路径为：" + mediaUrl)
     if (mediaUrl && token) {
       wx.uploadFile({
         url: app.globalData.studentBase + '/api/user/practice_upload_media',
@@ -491,7 +458,6 @@ Page({
         },
         success(res) {
           var data = JSON.parse(res.data)
-          console.log(data)
 
           if (type == "video") {
             that.setData({
@@ -539,7 +505,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-    console.log("onUnload")
     RecorderManager.stop()
     innerAudioContext.stop()
     clearInterval(this.data.setInter)

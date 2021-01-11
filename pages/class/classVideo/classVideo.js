@@ -42,7 +42,6 @@ Page({
         Authorization:token
       },
       success:function(res){
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'
@@ -83,7 +82,6 @@ Page({
           mode:mode
         },
         success: function (res) {
-          console.log(res)
           if(res.data.status_code==401){
             wx.navigateTo({
               url: '/pages/login/login'
@@ -105,8 +103,6 @@ Page({
                   })
                   return
                 }
-                console.log("成功")
-                console.log(res)
                 var is_join = "videoDetail.is_join"
                 if (res.errMsg == "requestPayment:ok") {
                   that.setData({
@@ -119,8 +115,6 @@ Page({
                 }
               },
               fail(res) {
-                console.log("失败")
-                console.log(res)
               }
             })
           }else{
@@ -132,7 +126,6 @@ Page({
           }
         },
         fail: function (err) {
-          console.log(err)
         }
       })
     }

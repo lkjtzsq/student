@@ -21,16 +21,13 @@ Page({
       // path: "/pages/dynamic/dynamic",
       // imageUrl:"",
       success:function(res){
-        console.log(res)
       },
       fail:function(err){
-        console.log(err)
       }
     }
   },
   //监听评论input值
   bindinput:function(e){
-    console.log(e)
     this.setData({
       commentValue:e.detail.value
     })
@@ -83,7 +80,6 @@ Page({
           key_id:id
         },
         success:function(res){
-          console.log(res)
           if(res.data.status_code==401){
             wx.navigateTo({
               url: '/pages/login/login'
@@ -127,7 +123,6 @@ Page({
         page:page
       },
       success: function (res) {
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'

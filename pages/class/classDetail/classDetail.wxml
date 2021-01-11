@@ -2,6 +2,7 @@
 	<image class="class-img" src="{{classDetail.classroom_cover}}" mode="widthFix"></image>
 	<rich-text nodes="{{article}}"></rich-text>
 	<view class="class-list" wx:if="{{classDetail.videos.length}}">
+		<text class="poster-btn" bindtap="toPoster">生成专属海报</text>
 		<text class="class-list-title">课程介绍</text>
 		<view class="choiceness-container">
 			<view class="choiceness-item" bindtap="toClassVideo" wx:for="{{classDetail.videos}}" wx:key="detial"
@@ -10,8 +11,8 @@
 					<image class="choiceness-item-img" mode="aspectFill" src="{{item.cover}}"></image>
 					<text class="free-tag" wx:if="{{classDetail.is_free=='free'}}">免费</text>
 					<image wx:if="{{index < classDetail.classroom_is_video || classDetail.is_join}}" class="lock"
-						src="https://xuexi.5rkk.com/wxxcx/images/icon/bofang.png"></image>
-					<image wx:else class="lock" src="https://xuexi.5rkk.com/wxxcx/images/icon/suo.png"></image>
+						src="https://caishang.5rkk.com/wxxcx/images/icon/bofang.png"></image>
+					<image wx:else class="lock" src="https://caishang.5rkk.com/wxxcx/images/icon/suo.png"></image>
 				</view>
 				<view class="choiceness-item-text">
 					<text class="choiceness-item-title">{{item.title}}</text>
@@ -31,7 +32,12 @@
 			<view class="free-btn" bindtap="pay">免费报名</view>
 		</view>
 	</view>
-	<prompt id="prompt" title='备注' btn_certain='确定' bind:getInput="getInput" bind:cancel="cancel"
-		bind:confirm="confirm">
+	<prompt id="prompt" title='备注' btn_certain='确定' bind:getInput="getInput" bind:cancel="cancel" bind:confirm="confirm">
 	</prompt>
+	<view class="bg" wx:if="{{show}}"></view>
+	<canvas canvas-id="myCanvas" class="canvas"
+		style="width:{{width}}px;height:{{height}}px;margin-left:{{marginLeft}};margin-top:{{marginTop}};"></canvas>
+	<image wx:if="{{show}}" class="canvas-delete" src="/images/icon/delete.png" bindtap="canvasDelete"></image>
+	<button open-type="share" class='icon-weixin' wx:if="{{show}}">分享给朋友</button>
+	<button class='icon-save' wx:if="{{show}}" bindtap="saveImage">保存到相册</button>
 </view>

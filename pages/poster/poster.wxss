@@ -1,0 +1,7 @@
+.canvas-poster{
+  background-color: #fafafa;
+  zoom: 50%; 
+  position: absolute;
+  left: -10000px;
+  background: #206949;
+}

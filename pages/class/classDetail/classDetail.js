@@ -10,6 +10,12 @@ Page({
     id:null,
     remark:""
   },
+  // 跳转海报生成页面
+  toPoster:function(){
+    wx.navigateTo({
+      url: '/pages/poster/poster?id='+this.data.id,
+    })
+  },
   //显示prompt
   showPrompt:function(){
     this.prompt.showPrompt();
@@ -31,7 +37,6 @@ Page({
   * 跳转至视频播放页面
   */
   toClassVideo(e) {
-    console.log(e)
    var is_join=this.data.classDetail.is_join
    var id = e.currentTarget.dataset.id
    var index = e.currentTarget.dataset.index
@@ -46,9 +51,7 @@ Page({
       showCancel:false,
       success (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
         } else if (res.cancel) {
-          console.log('用户点击取消')
         }
       }
     })
@@ -68,7 +71,6 @@ Page({
         classroom_id:id
       },
       success:function(res){
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'
@@ -82,7 +84,6 @@ Page({
           isGroup=true
         }
         var article = res.data.data.classroom_remark.replace(/<p([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<p').replace(/<p([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<p').replace(/<p>/ig, '<p class="p_class">').replace(/<img([\s\w"-=\/\.:;]+)((?:(height="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(width="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(style="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)((?:(alt="[^"]+")))/ig, '<img$1').replace(/<img([\s\w"-=\/\.:;]+)/ig, '<img$1 class="pho"').replace(/<ul>/ig, '<ul class="ul_class">').replace(/<li>/ig, '<li class="li_class">').replace(/<span([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<span').replace(/<span([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<span').replace(/<span>/ig, '<span class="span_class">')
-        console.log(article)
         that.setData({
           classDetail:res.data.data,
           isGroup:isGroup,
@@ -113,7 +114,6 @@ Page({
           mode:mode
         },
         success: function (res) {
-          console.log(res)
           if(res.data.status_code==401){
             wx.navigateTo({
               url: '/pages/login/login'
@@ -135,8 +135,6 @@ Page({
                   })
                   return
                 }
-                console.log("成功")
-                console.log(res)
                 var is_join = "classDetail.is_join"
                 if (res.errMsg == "requestPayment:ok") {
                   that.setData({
@@ -149,8 +147,6 @@ Page({
                 }
               },
               fail(res) {
-                console.log("失败")
-                console.log(res)
               }
             })
           }else{
@@ -162,7 +158,6 @@ Page({
           }
         },
         fail: function (err) {
-          console.log(err)
         }
       })
     }else{

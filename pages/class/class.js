@@ -10,7 +10,6 @@ Page({
   },
   // 课程详情跳转
   toClassDetail:function(e){
-    console.log(e)
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/class/classDetail/classDetail?id=' + id
@@ -34,7 +33,6 @@ Page({
         page:page
       },
       success:function(res){
-        console.log(res)
         if(res.data.status_code==401){
           wx.navigateTo({
             url: '/pages/login/login'

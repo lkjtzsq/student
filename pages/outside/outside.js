@@ -13,7 +13,6 @@ Page({
    */
   onLoad: function (options) {
     var outsideUrl = decodeURIComponent(options.outsideUrl)
-    console.log(outsideUrl)
     this.setData({
       outsideUrl:outsideUrl
     })

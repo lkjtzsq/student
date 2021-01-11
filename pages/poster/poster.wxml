@@ -1,0 +1,7 @@
+<canvas type="2d" class="canvas-poster" id="canvasPoster" style="width:{{width}}px;height:{{height}}px;"
+  canvas-id="canvasPoster"></canvas>
+<image src="{{poster}}" class="poster-img" bindtap="previewImg" alt=""></image>
+<div type="button" bindtap="savePoster" class="save-btn">
+  <!-- <img src="../img/0.3_btn_yellow_bg.png" alt=""> -->
+  <div class="btn-text">保存图片</div>
+</div>

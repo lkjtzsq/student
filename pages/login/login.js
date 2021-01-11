@@ -11,7 +11,6 @@ Page({
     var that = this;
     wx.login({
       success(res) {
-        console.log(res);
         var code = res.code
         wx.request({
           url: app.globalData.studentBase + '/api/session_key',
@@ -20,7 +19,6 @@ Page({
             code: code
           },
           success: function (res) {
-            // console.log(res)        
             that.setData(res.data.data)
           }
         })
@@ -59,7 +57,6 @@ Page({
         iv: iv
       },
       success:function(res){
-        // console.log(res)
         wx.setStorageSync("token", res.data.token)
         that.getUserInfo(res.data.token)    
       }
@@ -95,7 +92,6 @@ Page({
             url: '/pages/dailyPractice/dailyPractice'
           })
         } else {
-          // console.log("哈哈哈")
           wx.navigateBack({
             delta: 1
           })
@@ -107,7 +103,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log("onload")
     this.wxLogin()
     if (options.enter) {
       this.setData({
