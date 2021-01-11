@@ -84,6 +84,10 @@
       <text class="help-text">联系我们</text>
       <image class="help-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
     </view>
+    <view class="help-item" bindtap="test">
+      <text class="help-text">test</text>
+      <image class="help-icon" src="https://xuexi.5rkk.com/wxxcx/images/icon/mine-arrow-right.png"></image>
+    </view>
   </view>
   <button class="quit-button" wx:if="{{nickname}}" bindtap="quitLogin" type="warn">退出登录</button>
 </view>

@@ -20,6 +20,11 @@ Page({
       url: '/pages/contact/contact'
     })
   },
+  test(){
+    wx.navigateTo({
+      url: '/pages/test/test'
+    })
+  },
   //我的积分
   getScore(){
     var that=this
