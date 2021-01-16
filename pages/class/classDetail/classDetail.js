@@ -12,8 +12,6 @@ Page({
   },
   // 跳转海报生成页面
   toPoster:function(){
-    app.globalData.posterId = this.data.id
-    app.globalData.wxml=app.globalData.style = ''
     wx.navigateTo({
       url: '/pages/poster/poster?id='+this.data.id,
     })

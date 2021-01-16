@@ -1,6 +1,7 @@
-<wxml-to-canvas class="widget" width="{{width}}" height="{{height}}"></wxml-to-canvas>
-<button bindtap="extraImage">导出图片</button>
+<view class="image-container">
+  <image class="image" mode="aspectFit" src="{{poster}}"></image>
+</view>
 <view class="btn-container">
   <button open-type="share" class='icon-weixin'>分享给朋友</button>
-  <button class='icon-save' wx:if="{{show}}" bindtap="extraImage">保存到相册</button>
+  <button class='icon-save' bindtap="extraImage">保存到相册</button>
 </view>

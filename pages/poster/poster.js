@@ -1,92 +1,82 @@
 const app = getApp();
 Page({
   data: {
-    src: '',
-    width:0,
-    height:0,
+    poster: '',
+    id:null
   },
-  onLoad() {
+  onLoad(options) {
     let that = this
-    wx.getSystemInfo({
-      success: function(res) {
-        let width = res.windowWidth
-        let height = res.windowHeight
-        that.setData({
-          width,
-          height
-        })
+    this.setData({
+      id:options.id
+    })
+    this.getPoster(options.id);
+  },
+  getPoster(id){
+    wx.showLoading({
+      mask:true
+    })
+    let that = this;
+    wx.request({
+      url: `${app.globalData.studentBase}/api/classroom/hb`,
+      method:"POST",
+      data:{
+        classroom_id:id
+      },
+      success(res){
+        console.log(res)
+        if(res.data.code==200 && res.data.data.hb){
+          that.setData({
+            poster:res.data.data.hb
+          })
+          wx.hideLoading();
+        }
+      },
+      fail(err){
+        wx.hideLoading();
       }
     })
-    this.widget = this.selectComponent('.widget')
-    setTimeout(()=>{
-      this.renderToCanvas()
-    },50)
-  },
-  renderToCanvas() {
-    console.log(this.widget)
-    const { getPosterImage } = require('./demo.js')
-    getPosterImage(app.globalData.posterId)
-    console.log(app.globalData)
-    setTimeout(()=>{
-      let wxml = app.globalData.wxml;
-      let style = app.globalData.style;
-      const p1 = this.widget.renderToCanvas({ wxml, style })
-      p1.then((res) => {
-        this.container = res
-        console.log('zzzzz')
-        console.log(res)
-      }).catch(err=>{
-        console.log("errrrrrrrr")
-        console.log(err)
-        wx.showModal({
-          title:"提示",
-          content:"生成海报失败，请稍后尝试！",
-          showCancel:false,
-          success:function(res){
-            console.log(res)
-            if(res.confirm){
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          }
-        })
-      })
-    },2000)
   },
   extraImage() {
-    let that = this
-    const p2 = this.widget.canvasToTempFilePath({
-      canvasId: 'canvas',
-      success: function(res) {
-        this.saveImageToPhotos(res.tempFilePath);
-      },
-      fail: function(res) {
-        wx.showToast({
-          title: '图片生成失败',
-          icon: 'none',
-          duration: 2000
-        })
-      }
-    },this)
-    p2.then(res => {
-      // this.setData({
-      //   src: res.tempFilePath,
-      //   width: this.container.layoutBox.width,
-      //   height: this.container.layoutBox.height
+      wx.showLoading({
+        mask:true
+      })
+      let that = this;
+      wx.downloadFile({
+        url: that.data.poster, 
+        success (res) {
+          console.log(res)
+          if (res.statusCode === 200) {
+            let path = res.tempFilePath;
+            wx.saveImageToPhotosAlbum({
+              filePath:path,
+              success(res) {
+                console.log(res)
+                wx.hideLoading();
+              },
+              fail(err){
+                console.log(err)
+                wx.hideLoading();
+              }
+            })
+      //   filePath:that.data.poster,
+      //   success(res) {
+      //     console.log(res)
+      //   },
+      //   fail(err){
+      //     console.log(err)
+      //   }
       // })
-      wx.saveImageToPhotosAlbum({
-        filePath:res.tempFilePath,
-        success(res) {
+          }
         }
       })
-    })
+     
   },
   onShareAppMessage: function () {
+    console.log(app.globalData.classroom_name)
     return {
       title: app.globalData.classroom_name,
-      path: '/pages/class/classDetail/classDetail?id=' + app.globalData.posterId,
-      imageUrl:''
+      path: '/pages/class/classDetail/classDetail?id=' + this.id,
+      imageUrl:this.data.poster
     }
   }
 })
