@@ -182,14 +182,6 @@ Page({
     var that = this
     clearInterval(that.data.setInter)
     RecorderManager.stop();
-    // RecorderManager.onStop((res) => {
-    //   that.setData({
-    //     audioSrc: res.tempFilePath,
-    //     audioStatus: false
-    //   })
-    //   console.log('停止录音', res.tempFilePath)
-    //   that.uploadMedia(res.tempFilePath, "audio")
-    // })
   },
   //播放声音
   play: function() {

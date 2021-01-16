@@ -12,8 +12,9 @@ Page({
     this.getPoster(options.id);
   },
   getPoster(id){
-    wx.showLoading({
-      mask:true
+    wx.showToast({
+      icon: 'loading',
+      duration: 160000
     })
     let that = this;
     wx.request({
@@ -23,7 +24,6 @@ Page({
         classroom_id:id
       },
       success(res){
-        console.log(res)
         if(res.data.code==200 && res.data.data.hb){
           that.setData({
             poster:res.data.data.hb
@@ -37,45 +37,40 @@ Page({
     })
   },
   extraImage() {
-      wx.showLoading({
-        mask:true
+      wx.showToast({
+        icon: 'loading',
+        duration: 160000
       })
       let that = this;
       wx.downloadFile({
         url: that.data.poster, 
         success (res) {
-          console.log(res)
           if (res.statusCode === 200) {
             let path = res.tempFilePath;
             wx.saveImageToPhotosAlbum({
               filePath:path,
               success(res) {
-                console.log(res)
                 wx.hideLoading();
+                wx.showToast({
+                  title: '保存成功',
+                })
               },
               fail(err){
-                console.log(err)
                 wx.hideLoading();
+                wx.showToast({
+                  title: '保存失败',
+                })
               }
             })
-      //   filePath:that.data.poster,
-      //   success(res) {
-      //     console.log(res)
-      //   },
-      //   fail(err){
-      //     console.log(err)
-      //   }
-      // })
           }
         }
       })
      
   },
   onShareAppMessage: function () {
-    console.log(app.globalData.classroom_name)
     return {
       title: app.globalData.classroom_name,
-      path: '/pages/class/classDetail/classDetail?id=' + this.id,
+      path: '/pages/class/classDetail/classDetail?id=' + this.data.id,
       imageUrl:this.data.poster
     }
   }

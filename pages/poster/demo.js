@@ -22,7 +22,6 @@ let getPosterImage=function(id){
     success(res){
       if(res.data.code==200 && res.data.data.hb){
         let hb = res.data.data.hb;
-        console.log(hb)
         wx.getImageInfo({
           src: hb,
           success (res) {
@@ -47,7 +46,6 @@ let getPosterImage=function(id){
       }
     },
     fail(err){
-      console.log(err)
     }
   })
 }
