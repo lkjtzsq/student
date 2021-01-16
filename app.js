@@ -7,7 +7,8 @@ App({
       sessionId:"",
       sessionID:""
     },
-    mineCurrentData:0
+    mineCurrentData:0,
+    posterId:0
   },
   onLaunch:function(options){
    

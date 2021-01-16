@@ -12,6 +12,8 @@ Page({
   },
   // 跳转海报生成页面
   toPoster:function(){
+    app.globalData.posterId = this.data.id
+    app.globalData.wxml=app.globalData.style = ''
     wx.navigateTo({
       url: '/pages/poster/poster?id='+this.data.id,
     })
@@ -79,6 +81,7 @@ Page({
         }
         var classroom_is_group=res.data.data.classroom_is_group
         var classroom_group_price=res.data.data.classroom_group_price
+        app.globalData.classroom_name = res.data.data.classroom_name
         var isGroup=false
         if(classroom_is_group==1 && classroom_group_price >0){
           isGroup=true
