@@ -192,7 +192,6 @@ Page({
    */
   onLoad: function(options) {
    
-   
   },
 
   /**

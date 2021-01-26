@@ -19,5 +19,8 @@
     <text class="buy-text" wx:if="{{!isGroup}}">价格:</text>
     <text class="buy-price">¥{{storeDetail.good_group_price}}</text>
   </view>
-  <text class="buy-btn" bindtap="pay">立即购买</text>
+  <view class="btn-container">
+    <text class="buy-btn" bindtap="convert" wx:if="{{storeDetail.good_is_score==1}}" style="margin-right:30rpx;">{{storeDetail.good_score}}积分兑换</text>
+    <text class="buy-btn" bindtap="pay">立即购买</text>
+  </view>
 </view>

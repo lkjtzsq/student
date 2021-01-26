@@ -9,6 +9,74 @@ Page({
 
     }
   },
+    //积分兑换
+    convert() {
+      var token = wx.getStorageSync('token')
+      var that = this
+      wx.getSetting({
+        success(res) {
+          if (res.authSetting['scope.address']) {
+            wx.chooseAddress({
+              success(res) {
+                that.jifen(res)
+              }
+            })
+
+          } else {
+            if (res.authSetting['scope.address'] == false) {
+              wx.openSetting({
+                success(res) {
+                }
+              })
+            } else {
+              wx.chooseAddress({
+                success(res) {
+                  that.jifen(res)
+                }
+              })
+            }
+          }
+        }
+      })
+    },
+  // 积分兑换接口
+  jifen(address){
+    var that = this;
+    var token = wx.getStorageSync("token");
+    wx.request({
+      url: app.globalData.studentBase + '/api/pay/jifen/good',
+      method: "POST",
+      header: {
+        Authorization: token
+      },
+      data: {
+        good_id: that.data.storeDetail.id,
+        good_number:1,
+        address
+      },
+      success: function(res) {
+        if(res.data.message==401){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
+        if(res.data.message==='成功'){
+          app.globalData.mineCurrentData = 2
+          wx.switchTab({
+            url: "/pages/mine/mine"
+          })
+        }else{
+          wx.showModal({
+            title: '提示',
+            showCancel:false,
+            content: res.data.message 
+          })
+        }
+      }
+    })
+  
+  },
   //商城付费
   pay: function () {
     var that = this

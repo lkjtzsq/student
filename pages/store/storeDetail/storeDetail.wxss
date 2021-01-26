@@ -63,7 +63,6 @@
 .buy-price{
   font-size: 32rpx;
   color: #FF5C59;
-  margin-left: 10rpx; 
 }
 .buy-group {
   height: 140rpx;
@@ -79,14 +78,16 @@
   align-items: center;
   justify-content: space-between;
 }
-
+.btn-container{
+  display: flex;
+}
 .buy-btn{
-  width:300rpx;
-  height:84rpx;
+  height: 84rpx;
   text-align: center;
   line-height: 84rpx;
   border-radius: 8px;
   background: #FF5C59;
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #fff;
+  padding: 0 20rpx;
 }

@@ -92,7 +92,7 @@
   width: 306rpx;
   display: block;
   margin: 20rpx auto;
-  height: 226rpx;
+  height: 204rpx;
   border-radius: 8px;
 }
 
