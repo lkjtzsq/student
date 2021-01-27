@@ -161,7 +161,6 @@ Page({
   */
   triggerGetAuthMeAPI(token){
     this.getAuthMeAPI(token).then(res=>{
-      console.log(res);
       this.setData({
         user:res.data.data
       })
@@ -169,7 +168,7 @@ Page({
       let user_cover = res.data.data.user_cover
       let avatar_path = res.data.data.avatar_path ? res.data.data.avatar_path : "https://caishang.5rkk.com/wxxcx/images/icon/user.png";
       let classroom_name = res.data.data.classroom_name
-      let birth = res.data.data.birth ? result.data.data.birth:'保密'
+      let birth = res.data.data.birth ? res.data.data.birth:'保密'
       wx.setStorageSync("nickname", nickname)
       wx.setStorageSync("avatar_path", avatar_path)
       wx.setStorageSync("user_cover", user_cover)
@@ -185,6 +184,7 @@ Page({
           url: '/pages/dailyPractice/dailyPractice'
         })
       } else {
+        console.log("333")
         wx.navigateBack({
           delta: 1
         })

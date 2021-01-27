@@ -1,5 +1,29 @@
+.login {
+  background: #f2f2f2;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.login-logo {
+  width: 180rpx;
+  border-radius: 13px;
+  display: block;
+  margin: 100rpx auto 30rpx;
+}
+
+.login-text {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  font-size: 35rpx;
+  letter-spacing: 3rpx;
+}
+
 .login-button {
-  border-radius: 50px;
-  width: 300rpx;
-  margin-top:70rpx;
+  border-radius: 4px;
+  margin: 150rpx 40rpx;
+  display: block;
+  font-size: 35rpx;
+  letter-spacing: 3rpx;
 }

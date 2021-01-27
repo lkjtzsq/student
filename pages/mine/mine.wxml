@@ -1,4 +1,4 @@
-<view style="background: #F9FAFB;overflow:hidden;">
+<view style="background: #F9FAFB;overflow:hidden;min-height:100vh;">
   <view wx:if="{{nickname}}">
     <view class="userinfo">
       <image class="avatar-path" src="{{avatar_path}}"></image>

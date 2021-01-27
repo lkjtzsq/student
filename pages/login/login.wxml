@@ -1,4 +1,6 @@
 <view class="login">
+  <image class="login-logo" mode="widthFix" src="../../images/icon/login-logo.png"></image>
+  <text class="login-text">财商训练营</text>
   <button wx:if="{{!show}}" class="login-button" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信登录</button>
   <button wx:if="{{show}}" class="login-button" type="primary" open-type="getUserInfo" bindgetuserinfo="getPerson">获取用户信息</button>
 </view>
