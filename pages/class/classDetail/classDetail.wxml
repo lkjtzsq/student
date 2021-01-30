@@ -5,12 +5,12 @@
 		<text class="poster-btn" bindtap="toPoster">生成专属海报</text>
 		<text class="class-list-title">课程介绍</text>
 		<view class="choiceness-container">
-			<view class="choiceness-item" bindtap="toClassVideo" wx:for="{{classDetail.videos}}" wx:key="detial"
+			<view class="choiceness-item" bindtap="toClassVideo" wx:for="{{classDetail.videos}}" wx:key="detail"
 				data-id="{{item.id}}" data-index="{{index}}">
 				<view class="choiceness-item-img-container">
 					<image class="choiceness-item-img" mode="aspectFill" src="{{item.cover}}"></image>
 					<text class="free-tag" wx:if="{{classDetail.is_free=='free'}}">免费</text>
-					<image wx:if="{{index < classDetail.classroom_is_video || classDetail.is_join}}" class="lock"
+					<image wx:if="{{index < classDetail.classroom_video_free || classDetail.is_join}}" class="lock"
 						src="https://caishang.5rkk.com/wxxcx/images/icon/bofang.png"></image>
 					<image wx:else class="lock" src="https://caishang.5rkk.com/wxxcx/images/icon/suo.png"></image>
 				</view>
